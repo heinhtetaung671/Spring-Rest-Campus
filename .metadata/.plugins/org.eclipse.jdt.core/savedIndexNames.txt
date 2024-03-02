@@ -1,0 +1,2 @@
+INDEX VERSION 1.134+/home/heinhtetaung/myData/workspaces/spring-rest/.metadata/.plugins/org.eclipse.jdt.core
+1865797976.index
