@@ -1,4 +1,5 @@
-GitRepositoriesView.GitDirectories=/home/heinhtetaung/myData/mydata/book-store-git/BookLibraryAndStore/.git\:
-GitRepositoriesView.GitDirectories.relative=/home/heinhtetaung/myData/mydata/book-store-git/BookLibraryAndStore/.git\:
+GitRepositoriesView.GitDirectories=/home/heinhtetaung/myData/workspaces/spring-rest/.git\:
+GitRepositoriesView.GitDirectories.relative=.git\:
+RepositoryGroups.uuids=
 core_autoIgnoreDerivedResources=false
 eclipse.preferences.version=1
