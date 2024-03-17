@@ -22,6 +22,9 @@ public class Employee {
 	@ManyToOne
 	private Department department;
 
+	@ManyToOne
+	private Position position;
+	
 	@Column(nullable = false)
 	private String phone;
 	@Column(nullable = false)
@@ -31,7 +34,7 @@ public class Employee {
 	private Gender gender;
 	@Column(nullable = false)
 	private String email;
-
+	
 	@Column(nullable = false)
 	private LocalDate entryDate;
 	private LocalDate provationDate;

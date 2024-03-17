@@ -10,10 +10,10 @@ import org.springframework.transaction.annotation.Transactional;
 import com.jdc.weekend.api.input.DepartmentCreateForm;
 import com.jdc.weekend.api.input.DepartmentSearch;
 import com.jdc.weekend.api.input.DepartmentUpdateForm;
-import com.jdc.weekend.api.output.ApiResponse;
 import com.jdc.weekend.api.output.DataModificationResult;
 import com.jdc.weekend.api.output.DepartmentInfo;
 import com.jdc.weekend.api.output.DepartmentInfoDetails;
+import com.jdc.weekend.model.DataModificationResults;
 import com.jdc.weekend.model.NullSafeHelper;
 import com.jdc.weekend.model.entity.Department;
 import com.jdc.weekend.model.repo.DepartmentRepo;
@@ -33,7 +33,7 @@ public class DepartmentService {
 	@Transactional
 	public DataModificationResult<String> create(DepartmentCreateForm form) {
 		var department = repo.save(form.entity());
-		return DataModificationResult.createResult(department.getCode(), DOMAIN_NAME, "code");
+		return DataModificationResults.createResult(department.getCode(), DOMAIN_NAME, "code");
 	}
 
 	public DepartmentInfoDetails findById(String code) {
@@ -46,7 +46,7 @@ public class DepartmentService {
 		department.setName(form.name());
 		department.setPhone(form.phone());
 		department.setDescription(form.description());
-		return DataModificationResult.updateResult(code, DOMAIN_NAME, "code");
+		return DataModificationResults.updateResult(code, DOMAIN_NAME, "code");
 	}
 
 	public List<DepartmentInfo> search(DepartmentSearch search) {

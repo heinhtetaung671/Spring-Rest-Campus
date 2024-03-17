@@ -5,4 +5,6 @@ import com.jdc.weekend.model.entity.Department;
 
 public interface DepartmentRepo extends BaseRepository<Department, String>{
 
+	long countBycode(String value);
+
 }

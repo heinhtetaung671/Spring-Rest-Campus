@@ -11,10 +11,9 @@ public class EmployeeCode {
 	@Id
 	private String departmentCode;
 	private int seqNumber;
+
 	public int next() {
-		return ++ seqNumber;
+		return ++seqNumber;
 	}
 
-	
-	
 }
