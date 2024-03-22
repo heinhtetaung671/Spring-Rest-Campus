@@ -25,19 +25,20 @@ public record PositionInfo(
 		
 		cq.multiselect(
 				root.get(Position_.code),
-				root.get(Position_.code),
-				root.get(Position_.code),
-				root.get(Position_.code),
-				root.get(Position_.code),
+				root.get(Position_.name),
+				root.get(Position_.basicSalary),
+				root.get(Position_.otPerHour),
+				root.get(Position_.remark),
 				cb.count(employees.get(Employee_.code))
 				);
 		
 		cq.groupBy(root.get(Position_.code),
-				root.get(Position_.code),
-				root.get(Position_.code),
-				root.get(Position_.code),
-				root.get(Position_.code));
+				root.get(Position_.name),
+				root.get(Position_.basicSalary),
+				root.get(Position_.otPerHour),
+				root.get(Position_.remark));
 		
+		cq.orderBy(cb.asc(root.get(Position_.name)));
 	}
 
 }

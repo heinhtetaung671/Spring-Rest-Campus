@@ -15,7 +15,7 @@ public class Position {
 	@Id
 	private String code;
 	private String name;
-	private BigDecimal baseSalary;
+	private BigDecimal basicSalary;
 	private BigDecimal otPerHour;
 	private String remark;
 	

@@ -3,7 +3,7 @@ package com.jdc.weekend.model.service;
 import java.util.List;
 import java.util.function.Function;
 
-import org.springframework.boot.autoconfigure.AutoConfigureOrder;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -25,7 +25,7 @@ import jakarta.persistence.criteria.CriteriaQuery;
 @Transactional
 public class PositionService {
 
-	@AutoConfigureOrder
+	@Autowired
 	private PositionRepo repo;
 	
 	private static final String DOMAIN_NAME = "Position";
@@ -55,7 +55,7 @@ public class PositionService {
 	public DataModificationResult<String> update(String code, PositionUpdateForm form) {
 		var entity = NullSafeHelper.safeCall(repo.findById(code), DOMAIN_NAME, code);
 		entity.setName(form.name());
-		entity.setBaseSalary(form.basicSalary());
+		entity.setBasicSalary(form.basicSalary());
 		entity.setOtPerHour(form.otPerHour());
 		entity.setRemark(form.remark());
 		return DataModificationResults.updateResult(code, DOMAIN_NAME, "code");

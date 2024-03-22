@@ -45,7 +45,7 @@ public class PositionApi {
 	}
 	
 	@GetMapping("{code}")
-	ApiResponse<PositionInfoDetails> findById(String code) {
+	ApiResponse<PositionInfoDetails> findById(@PathVariable String code) {
 		return ApiResponse.success(service.findById(code));
 	}
 

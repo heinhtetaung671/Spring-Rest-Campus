@@ -10,7 +10,7 @@ public record PositionInfoDetails(String code, String name, BigDecimal baseSalar
 
 	public static PositionInfoDetails from(Position position) {
 		return new PositionInfoDetails(position.getCode(), position.getCode(),
-				position.getBaseSalary(), position.getOtPerHour(), position.getRemark(),
+				position.getBasicSalary(), position.getOtPerHour(), position.getRemark(),
 				position.getEmployees().stream().map(EmployeeInfo::from).toList());
 	}
 
