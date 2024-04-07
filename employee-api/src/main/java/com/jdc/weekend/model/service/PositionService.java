@@ -22,7 +22,7 @@ import jakarta.persistence.criteria.CriteriaBuilder;
 import jakarta.persistence.criteria.CriteriaQuery;
 
 @Service
-@Transactional
+@Transactional(readOnly = true)
 public class PositionService {
 
 	@Autowired
@@ -31,7 +31,6 @@ public class PositionService {
 	private static final String DOMAIN_NAME = "Position";
 	
 	public List<PositionInfo> search(PositionSearch search) {
-		
 		return repo.search(searchFunc(search));
 	}
 	
