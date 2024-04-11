@@ -3,7 +3,7 @@ package com.jdc.weekend.model.entity;
 import java.time.LocalDate;
 
 import com.jdc.weekend.model.AbstractEntity;
-import com.jdc.weekend.model.Status;
+import com.jdc.weekend.model.EmployeeRole;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -25,7 +25,7 @@ public class Employee extends AbstractEntity{
 	@OneToOne
 	private Account account;
 	@Column(nullable = false)
-	private Status status;
+	private EmployeeRole role;
 	@Column(nullable = false)
 	private String phone;
 	@Column(nullable = false)

@@ -18,7 +18,7 @@ import lombok.Data;
 @EntityListeners(value = AuditingEntityListener.class)
 public abstract class AbstractEntity {
 
-	@Column(columnDefinition = "default false")
+	@Column(columnDefinition = "tinyInt default 0")
 	private boolean deleted;
 
 	@CreatedBy

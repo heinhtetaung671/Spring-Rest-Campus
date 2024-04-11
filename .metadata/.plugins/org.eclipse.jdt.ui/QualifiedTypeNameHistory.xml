@@ -1,24 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-    <fullyQualifiedTypeName name="jakarta.persistence.GeneratedValue"/>
-    <fullyQualifiedTypeName name="com.jdc.weekend.model.entity.EmployeeHistroyPk"/>
-    <fullyQualifiedTypeName name="jakarta.persistence.OneToOne"/>
-    <fullyQualifiedTypeName name="com.jdc.weekend.model.entity.EmployeeChanges"/>
-    <fullyQualifiedTypeName name="jakarta.persistence.Entity"/>
-    <fullyQualifiedTypeName name="lombok.Data"/>
-    <fullyQualifiedTypeName name="lombok.EqualsAndHashCode"/>
-    <fullyQualifiedTypeName name="java.io.Serializable"/>
-    <fullyQualifiedTypeName name="com.jdc.weekend.model.AbstractEntity"/>
-    <fullyQualifiedTypeName name="java.math.BigDecimal"/>
-    <fullyQualifiedTypeName name="com.jdc.weekend.model.entity.LedgeryEntryPk"/>
-    <fullyQualifiedTypeName name="jakarta.persistence.EmbeddedId"/>
-    <fullyQualifiedTypeName name="com.jdc.weekend.model.entity.LedgerEntryId"/>
-    <fullyQualifiedTypeName name="java.time.LocalDate"/>
-    <fullyQualifiedTypeName name="com.jdc.weekend.model.entity.Account"/>
-    <fullyQualifiedTypeName name="com.jdc.weekend.model.entity.LedgerEntryItem"/>
-    <fullyQualifiedTypeName name="jakarta.persistence.ManyToOne"/>
-    <fullyQualifiedTypeName name="jakarta.persistence.Column"/>
-    <fullyQualifiedTypeName name="jakarta.persistence.ElementCollection"/>
     <fullyQualifiedTypeName name="org.springframework.data.jpa.repository.JpaRepository"/>
     <fullyQualifiedTypeName name="org.springframework.data.repository.NoRepositoryBean"/>
     <fullyQualifiedTypeName name="java.util.List"/>
@@ -41,8 +22,6 @@
     <fullyQualifiedTypeName name="com.jdc.weekend.model.service.LedgerEntryService"/>
     <fullyQualifiedTypeName name="com.jdc.weekend.model.repo.CategoryRepo"/>
     <fullyQualifiedTypeName name="org.springframework.boot.autoconfigure.AutoConfigureOrder"/>
-    <fullyQualifiedTypeName name="org.springframework.beans.factory.annotation.Autowired"/>
-    <fullyQualifiedTypeName name="org.springframework.transaction.annotation.Transactional"/>
     <fullyQualifiedTypeName name="jakarta.validation.constraints.NotNull"/>
     <fullyQualifiedTypeName name="jakarta.validation.constraints.NotBlank"/>
     <fullyQualifiedTypeName name="java.lang.RuntimeException"/>
@@ -60,4 +39,25 @@
     <fullyQualifiedTypeName name="com.jdc.weekend.model.entity.Category_"/>
     <fullyQualifiedTypeName name="org.hibernate.jpamodelgen.util.StringUtil"/>
     <fullyQualifiedTypeName name="org.springframework.util.StringUtils"/>
+    <fullyQualifiedTypeName name="com.jdc.weekend.model.entity.LedgeryEntryPk"/>
+    <fullyQualifiedTypeName name="jakarta.persistence.EmbeddedId"/>
+    <fullyQualifiedTypeName name="lombok.EqualsAndHashCode"/>
+    <fullyQualifiedTypeName name="jakarta.persistence.Entity"/>
+    <fullyQualifiedTypeName name="lombok.Data"/>
+    <fullyQualifiedTypeName name="jakarta.persistence.Id"/>
+    <fullyQualifiedTypeName name="com.jdc.weekend.model.EmployeeChanges"/>
+    <fullyQualifiedTypeName name="com.jdc.weekend.api.input.EmployeeForm"/>
+    <fullyQualifiedTypeName name="javax.management.relation.Role"/>
+    <fullyQualifiedTypeName name="com.jdc.weekend.model.EmployeeRole"/>
+    <fullyQualifiedTypeName name="com.jdc.weekend.model.Status"/>
+    <fullyQualifiedTypeName name="com.jdc.weekend.model.entity.Account"/>
+    <fullyQualifiedTypeName name="com.jdc.weekend.model.repo.EmployeeRepo"/>
+    <fullyQualifiedTypeName name="org.springframework.beans.factory.annotation.Autowired"/>
+    <fullyQualifiedTypeName name="com.jdc.weekend.model.repo.AccountRepo"/>
+    <fullyQualifiedTypeName name="org.springframework.transaction.annotation.Transactional"/>
+    <fullyQualifiedTypeName name="com.jdc.weekend.model.entity.Employee"/>
+    <fullyQualifiedTypeName name="com.jdc.weekend.api.output.EmployeeInfo"/>
+    <fullyQualifiedTypeName name="jakarta.persistence.Embeddable"/>
+    <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.GetMapping"/>
+    <fullyQualifiedTypeName name="jakarta.persistence.Column"/>
 </qualifiedTypeNameHistroy>

@@ -24,6 +24,7 @@ public class LedgetEntryApi {
 
 	private LedgerEntryService service;
 	
+	@GetMapping
 	Page<LedgerEntryInfo> search(LedgerEntrySearch search,
 			@RequestParam(required = false, defaultValue = "0") int page,
 			@RequestParam(required = false, defaultValue = "0") int size) {

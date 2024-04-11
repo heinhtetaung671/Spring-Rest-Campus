@@ -1,7 +1,7 @@
 package com.jdc.weekend.model.entity;
 
 import com.jdc.weekend.model.AbstractEntity;
-import com.jdc.weekend.model.EmployeeRole;
+import com.jdc.weekend.model.Status;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -22,7 +22,7 @@ public class Account extends AbstractEntity{
 	@Column(nullable = false, unique = true)
 	private String loginId;
 	@Column(nullable = false)
-	private EmployeeRole role;
+	private Status status;
 	@Column(nullable = false)
 	private String name;
 	@Column(nullable = false)
