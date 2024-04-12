@@ -1,7 +1,6 @@
 package com.jdc.weekend.api.input;
 
 import com.jdc.weekend.model.EmployeeRole;
-import com.jdc.weekend.model.entity.Account;
 import com.jdc.weekend.model.entity.Employee;
 
 public record EmployeeForm(
@@ -12,9 +11,6 @@ public record EmployeeForm(
 		) {
 
 	public Employee entity() {
-		var account = new Account();
-		account.setName(name);
-		
 		var employee = new Employee();
 		employee.setRole(role);
 		employee.setPhone(phone);

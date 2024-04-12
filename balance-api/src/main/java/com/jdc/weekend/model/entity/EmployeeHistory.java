@@ -34,6 +34,7 @@ public class EmployeeHistory extends AbstractEntity{
 	private String phone;
 	@Column(nullable = false)
 	private String email;
+	private String password;
 	@Column(nullable = false)
 	private EmployeeRole role;
 	private LocalDate statusChangeAt;

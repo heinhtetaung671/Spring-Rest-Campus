@@ -1,6 +1,6 @@
 package com.jdc.weekend.model.service;
 
-import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.ApplicationEventPublisher;
 import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -10,16 +10,18 @@ import com.jdc.weekend.api.input.EmployeeSearch;
 import com.jdc.weekend.api.input.EmployeeStatusForm;
 import com.jdc.weekend.api.output.EmployeeInfo;
 import com.jdc.weekend.api.output.EmployeeInfoDetails;
-import com.jdc.weekend.model.repo.AccountRepo;
+import com.jdc.weekend.model.event.employee.AccountCreateAndSetEvent;
 import com.jdc.weekend.model.repo.EmployeeRepo;
+
+import lombok.RequiredArgsConstructor;
 
 @Service
 @Transactional(readOnly = true)
+@RequiredArgsConstructor
 public class EmployeeService {
 
-	@Autowired
-	private EmployeeRepo employeeRepo;
-	private AccountRepo accountRepo;
+	private final EmployeeRepo employeeRepo;
+	private final ApplicationEventPublisher publisher;
 	
 	private static final String DOMAIN = "Employee";
 	
@@ -34,16 +36,14 @@ public class EmployeeService {
 	}
 
 	public EmployeeInfo updateStatus(int id, EmployeeStatusForm form) {
-		// TODO Auto-generated method stub
+
 		return null;
 	}
 
 	@Transactional
 	public EmployeeInfo create(EmployeeForm form) {
 		var employee = form.entity();
-		var account = form.entity().getAccount();
-		
-		accountRepo.save(account);
+		publisher.publishEvent(new AccountCreateAndSetEvent(employee, form.name()));
 		return EmployeeInfo.from(employeeRepo.save(employee));
 	}
 
