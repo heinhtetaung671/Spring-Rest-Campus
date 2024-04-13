@@ -3,10 +3,16 @@ package com.jdc.weekend.model.event.employee;
 import com.jdc.weekend.model.EmployeeChanges;
 import com.jdc.weekend.model.entity.Employee;
 
+import lombok.Getter;
+
+@Getter
 public class EmployeeStatusChangeEvent extends AbstractEmployeeDataChangesEvent{
 
-	public EmployeeStatusChangeEvent(Employee employee) {
+	private final String reason;
+	
+	public EmployeeStatusChangeEvent(Employee employee, String reason) {
 		super(employee, EmployeeChanges.StatusChanges);
+		this.reason = reason;
 	}
 
 	@Override
@@ -16,7 +22,6 @@ public class EmployeeStatusChangeEvent extends AbstractEmployeeDataChangesEvent{
 
 	@Override
 	public Employee getEmployee() {
-		// TODO Auto-generated method stub
 		return employee;
 	}
 

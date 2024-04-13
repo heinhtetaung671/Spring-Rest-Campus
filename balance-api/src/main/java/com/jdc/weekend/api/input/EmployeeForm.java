@@ -18,4 +18,8 @@ public record EmployeeForm(
 		return employee;
 	}
 	
+	public static EmployeeForm from(Employee employee) {
+		return new EmployeeForm(employee.getAccount().getName(), employee.getRole(), employee.getPhone(), employee.getEmail());
+	}
+	
 }

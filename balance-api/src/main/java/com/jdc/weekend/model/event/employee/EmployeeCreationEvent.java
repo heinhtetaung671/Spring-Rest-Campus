@@ -16,7 +16,6 @@ public class EmployeeCreationEvent extends AbstractEmployeeDataChangesEvent {
 
 	@Override
 	public Employee getEmployee() {
-		// TODO Auto-generated method stub
 		return employee;
 	}
 }

@@ -5,6 +5,7 @@ import java.time.LocalDateTime;
 import com.jdc.weekend.model.EmployeeChanges;
 import com.jdc.weekend.model.EmployeeRole;
 import com.jdc.weekend.model.Status;
+import com.jdc.weekend.model.entity.EmployeeHistory;
 
 public record EmployeeHistoryInfo(
 		String name,
@@ -15,5 +16,9 @@ public record EmployeeHistoryInfo(
 		EmployeeChanges changes,
 		LocalDateTime  changeAt,
 		String changeBy) {
+	
+	public static EmployeeHistoryInfo from(EmployeeHistory employeeHistory) {
+		return null;
+	}
 
 }

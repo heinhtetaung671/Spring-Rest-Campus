@@ -1,6 +1,7 @@
 package com.jdc.weekend.model.entity;
 
 import java.time.LocalDate;
+import java.util.List;
 
 import com.jdc.weekend.model.AbstractEntity;
 import com.jdc.weekend.model.EmployeeRole;
@@ -10,6 +11,7 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.OneToOne;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -31,4 +33,7 @@ public class Employee extends AbstractEntity{
 	@Column(nullable = false)
 	private String email;
 	private LocalDate statusChangeAt;
+	
+	@OneToMany(mappedBy = "employee")
+	private List<EmployeeHistory> employeeHistorys;
 }

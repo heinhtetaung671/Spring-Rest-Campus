@@ -34,9 +34,11 @@ public class EmployeeHistoryUtils {
 		return employeeHistory;
 	}
 	
-	public EmployeeHistory toHistoryForStatusChange(Employee employee, EmployeeChanges employeeChanges) {
-		var hist = toHistory(employee, employeeChanges);
-		hist.setStatusChangeAt(LocalDate.now());
-		return hist;
+	public EmployeeHistory toHistoryForStatusChange(Employee employee, EmployeeChanges employeeChanges, String reason) {
+		var employeeHistory = toHistory(employee, employeeChanges);
+		employeeHistory.setStatusChangeAt(LocalDate.now());
+		employeeHistory.setReason(reason);
+		
+		return employeeHistory;
 	}
 }

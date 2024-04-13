@@ -23,7 +23,7 @@ public class EmployeeHistory extends AbstractEntity{
 	@EmbeddedId
 	private EmployeeHistroyPk id;
 	@ManyToOne
-	@JoinColumn(name = "employee_id", referencedColumnName = "id", insertable = false, updatable = false)
+	@JoinColumn(insertable = false, updatable = false)
 	private Employee employee;
 	
 	@Column(nullable = false)
@@ -34,6 +34,7 @@ public class EmployeeHistory extends AbstractEntity{
 	private String phone;
 	@Column(nullable = false)
 	private String email;
+	@Column(nullable = false)
 	private String password;
 	@Column(nullable = false)
 	private EmployeeRole role;
@@ -41,5 +42,5 @@ public class EmployeeHistory extends AbstractEntity{
 	
 	private EmployeeChanges changes;
 	private String changeBy;
-	
+	private String reason;
 }
