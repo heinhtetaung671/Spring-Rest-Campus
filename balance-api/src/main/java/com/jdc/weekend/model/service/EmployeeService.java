@@ -1,5 +1,7 @@
 package com.jdc.weekend.model.service;
 
+import java.util.function.Function;
+
 import org.springframework.context.ApplicationEventPublisher;
 import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Service;
@@ -11,11 +13,17 @@ import com.jdc.weekend.api.input.EmployeeStatusForm;
 import com.jdc.weekend.api.output.EmployeeInfo;
 import com.jdc.weekend.api.output.EmployeeInfoDetails;
 import com.jdc.weekend.model.Common;
+import com.jdc.weekend.model.entity.Account_;
+import com.jdc.weekend.model.entity.Employee;
+import com.jdc.weekend.model.entity.Employee_;
 import com.jdc.weekend.model.event.employee.AccountCreateAndSetEvent;
 import com.jdc.weekend.model.event.employee.EmployeeCreationEvent;
+import com.jdc.weekend.model.event.employee.EmployeeInfoChangesEvent;
 import com.jdc.weekend.model.event.employee.EmployeeStatusChangeEvent;
 import com.jdc.weekend.model.repo.EmployeeRepo;
 
+import jakarta.persistence.criteria.CriteriaBuilder;
+import jakarta.persistence.criteria.CriteriaQuery;
 import lombok.RequiredArgsConstructor;
 
 @Service
@@ -39,6 +47,8 @@ public class EmployeeService {
 		employee.setRole(form.role());
 		employee.setPhone(form.phone());
 		employee.setEmail(form.email());
+		
+		publisher.publishEvent(new EmployeeInfoChangesEvent(employee));
 		return EmployeeInfo.from(employee);
 	}
 
@@ -64,8 +74,29 @@ public class EmployeeService {
 	}
 
 	public Page<EmployeeInfo> search(EmployeeSearch search, int page, int size) {
-		// TODO Auto-generated method stub
-		return null;
+		return employeeRepo.search(searchFunc(search),countFunc(search), page, size);
+	}
+	
+	private Function<CriteriaBuilder, CriteriaQuery<EmployeeInfo>> searchFunc(EmployeeSearch search){
+		return cb -> {
+			var cq = cb.createQuery(EmployeeInfo.class);
+			var root = cq.from(Employee.class);
+			EmployeeInfo.select(cq, root);
+			cq.where(search.where(cb, root));
+			cq.orderBy(cb.asc(root.get(Employee_.account).get(Account_.name)));
+			return cq;
+		};
+		
 	}
 
+	private Function<CriteriaBuilder, CriteriaQuery<Long>> countFunc(EmployeeSearch search){
+		return cb -> {
+			var cq = cb.createQuery(Long.class);
+			var root = cq.from(Employee.class);
+			cq.select(cb.count(root.get(Employee_.id)));
+			cq.where(search.where(cb, root));
+			return cq;
+		};
+	}
+	
 }
