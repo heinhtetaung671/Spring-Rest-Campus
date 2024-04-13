@@ -1,4 +1,4 @@
-package com.jdc.weekend.model;
+package com.jdc.weekend.model.common;
 
 import java.util.Optional;
 

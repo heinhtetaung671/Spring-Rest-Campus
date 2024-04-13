@@ -1,11 +1,10 @@
 package com.jdc.weekend.model.service;
 
-import static com.jdc.weekend.model.Common.getOne;
+import static com.jdc.weekend.model.common.Common.getOne;
 
 import java.util.List;
 import java.util.function.Function;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.multipart.MultipartFile;
@@ -13,20 +12,20 @@ import org.springframework.web.multipart.MultipartFile;
 import com.jdc.weekend.api.input.CategoryForm;
 import com.jdc.weekend.api.input.CategorySearch;
 import com.jdc.weekend.api.output.CategoryInfo;
+import com.jdc.weekend.model.constant.DomainNamesForExceptionMsg;
 import com.jdc.weekend.model.entity.Category;
 import com.jdc.weekend.model.repo.CategoryRepo;
 
 import jakarta.persistence.criteria.CriteriaBuilder;
 import jakarta.persistence.criteria.CriteriaQuery;
+import lombok.RequiredArgsConstructor;
 
 @Service
 @Transactional
+@RequiredArgsConstructor
 public class CategoryService {
 
-	@Autowired
-	private CategoryRepo repo;
-
-	private static final String DOMAIN = "Category";
+	private final CategoryRepo repo;
 
 	@Transactional(readOnly = true)
 	public List<CategoryInfo> search(CategorySearch search) {
@@ -38,7 +37,7 @@ public class CategoryService {
 	}
 
 	public CategoryInfo update(int id, CategoryForm form) {
-		var entity = getOne(repo.findById(id), DOMAIN , id);
+		var entity = getOne(repo.findById(id), DomainNamesForExceptionMsg.CATEGORY , id);
 		entity.setName(form.name());
 		entity.setDesciption(form.remark());
 		entity.setType(form.type());
@@ -47,7 +46,7 @@ public class CategoryService {
 
 	@Transactional(readOnly = true)
 	public CategoryInfo findById(int id) {
-		return CategoryInfo.from(getOne(repo.findById(id), DOMAIN , id));
+		return CategoryInfo.from(getOne(repo.findById(id), DomainNamesForExceptionMsg.CATEGORY , id));
 	}
 
 	public CategoryInfo create(CategoryForm form) {

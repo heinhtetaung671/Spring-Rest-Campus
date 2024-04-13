@@ -1,7 +1,6 @@
 package com.jdc.weekend.model.entity;
 
 import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
 import java.util.List;
 
 import com.jdc.weekend.model.AbstractEntity;

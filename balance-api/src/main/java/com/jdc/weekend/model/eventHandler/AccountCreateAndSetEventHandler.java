@@ -5,7 +5,7 @@ import org.springframework.context.event.EventListener;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.jdc.weekend.model.Status;
+import com.jdc.weekend.model.constant.Status;
 import com.jdc.weekend.model.entity.Account;
 import com.jdc.weekend.model.event.employee.AccountCreateAndSetEvent;
 import com.jdc.weekend.model.repo.AccountRepo;

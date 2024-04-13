@@ -1,7 +1,7 @@
 package com.jdc.weekend.api.output;
 
-import com.jdc.weekend.model.EmployeeRole;
-import com.jdc.weekend.model.Status;
+import com.jdc.weekend.model.constant.EmployeeRole;
+import com.jdc.weekend.model.constant.Status;
 import com.jdc.weekend.model.entity.Account_;
 import com.jdc.weekend.model.entity.Employee;
 import com.jdc.weekend.model.entity.Employee_;

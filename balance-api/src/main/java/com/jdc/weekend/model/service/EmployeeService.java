@@ -12,7 +12,8 @@ import com.jdc.weekend.api.input.EmployeeSearch;
 import com.jdc.weekend.api.input.EmployeeStatusForm;
 import com.jdc.weekend.api.output.EmployeeInfo;
 import com.jdc.weekend.api.output.EmployeeInfoDetails;
-import com.jdc.weekend.model.Common;
+import com.jdc.weekend.model.common.Common;
+import com.jdc.weekend.model.constant.DomainNamesForExceptionMsg;
 import com.jdc.weekend.model.entity.Account_;
 import com.jdc.weekend.model.entity.Employee;
 import com.jdc.weekend.model.entity.Employee_;
@@ -33,28 +34,26 @@ public class EmployeeService {
 
 	private final EmployeeRepo employeeRepo;
 	private final ApplicationEventPublisher publisher;
-	
-	private static final String DOMAIN = "Employee";
-	
+
 	public EmployeeForm findByIdForEdit(int id) {
-		return EmployeeForm.from(Common.getOne(employeeRepo.findById(id), DOMAIN, "Id"));
+		return EmployeeForm.from(Common.getOne(employeeRepo.findById(id), DomainNamesForExceptionMsg.EMPLOYEE, id));
 	}
- 
+
 	@Transactional
 	public EmployeeInfo update(int id, EmployeeForm form) {
-		var employee = Common.getOne(employeeRepo.findById(id), DOMAIN, "Id");
+		var employee = Common.getOne(employeeRepo.findById(id), DomainNamesForExceptionMsg.EMPLOYEE, id);
 		employee.getAccount().setName(form.name());
 		employee.setRole(form.role());
 		employee.setPhone(form.phone());
 		employee.setEmail(form.email());
-		
+
 		publisher.publishEvent(new EmployeeInfoChangesEvent(employee));
 		return EmployeeInfo.from(employee);
 	}
 
 	@Transactional
 	public EmployeeInfo updateStatus(int id, EmployeeStatusForm form) {
-		var employee = Common.getOne(employeeRepo.findById(id), DOMAIN, "Id");
+		var employee = Common.getOne(employeeRepo.findById(id), DomainNamesForExceptionMsg.EMPLOYEE, id);
 		employee.getAccount().setStatus(form.status());
 		publisher.publishEvent(new EmployeeStatusChangeEvent(employee, form.reason()));
 		return EmployeeInfo.from(employee);
@@ -70,14 +69,15 @@ public class EmployeeService {
 	}
 
 	public EmployeeInfoDetails findById(int id) {
-		return EmployeeInfoDetails.from(Common.getOne(employeeRepo.findById(id), DOMAIN, "Id"));
+		return EmployeeInfoDetails
+				.from(Common.getOne(employeeRepo.findById(id), DomainNamesForExceptionMsg.EMPLOYEE, id));
 	}
 
 	public Page<EmployeeInfo> search(EmployeeSearch search, int page, int size) {
-		return employeeRepo.search(searchFunc(search),countFunc(search), page, size);
+		return employeeRepo.search(searchFunc(search), countFunc(search), page, size);
 	}
-	
-	private Function<CriteriaBuilder, CriteriaQuery<EmployeeInfo>> searchFunc(EmployeeSearch search){
+
+	private Function<CriteriaBuilder, CriteriaQuery<EmployeeInfo>> searchFunc(EmployeeSearch search) {
 		return cb -> {
 			var cq = cb.createQuery(EmployeeInfo.class);
 			var root = cq.from(Employee.class);
@@ -88,7 +88,7 @@ public class EmployeeService {
 		};
 	}
 
-	private Function<CriteriaBuilder, CriteriaQuery<Long>> countFunc(EmployeeSearch search){
+	private Function<CriteriaBuilder, CriteriaQuery<Long>> countFunc(EmployeeSearch search) {
 		return cb -> {
 			var cq = cb.createQuery(Long.class);
 			var root = cq.from(Employee.class);
@@ -97,5 +97,5 @@ public class EmployeeService {
 			return cq;
 		};
 	}
-	
+
 }

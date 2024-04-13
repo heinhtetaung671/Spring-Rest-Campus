@@ -1,6 +1,6 @@
 package com.jdc.weekend.model.event.employee;
 
-import com.jdc.weekend.model.EmployeeChanges;
+import com.jdc.weekend.model.constant.EmployeeChanges;
 import com.jdc.weekend.model.entity.Employee;
 
 import lombok.RequiredArgsConstructor;

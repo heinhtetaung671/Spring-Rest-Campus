@@ -25,18 +25,18 @@ public class EmployeeDataChangesEventHandler {
 
 	@TransactionalEventListener
 	public void handleStatusChangeEvent(EmployeeStatusChangeEvent event) {
-		histRepo.save(employeeHistoryUtils.toHistoryForStatusChange(event.getEmployee(), event.getEmployeeChanges(),
+		histRepo.save(employeeHistoryUtils.toEntityForStatusChange(event.getEmployee(), event.getEmployeeChanges(),
 				event.getReason()));
 	}
 
 	@TransactionalEventListener
 	public void handleCreationEvent(EmployeeCreationEvent event) {
-		histRepo.save(employeeHistoryUtils.toHistory(event.getEmployee(), event.getEmployeeChanges()));
+		histRepo.save(employeeHistoryUtils.toEntity(event.getEmployee(), event.getEmployeeChanges()));
 	}
 
 	@TransactionalEventListener
 	public void handleInfoChangesEvent(EmployeeInfoChangesEvent event) {
-		histRepo.save(employeeHistoryUtils.toHistory(event.getEmployee(), event.getEmployeeChanges()));
+		histRepo.save(employeeHistoryUtils.toEntity(event.getEmployee(), event.getEmployeeChanges()));
 	}
 
 }

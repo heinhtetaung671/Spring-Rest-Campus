@@ -2,9 +2,9 @@ package com.jdc.weekend.api.output;
 
 import java.time.LocalDateTime;
 
-import com.jdc.weekend.model.EmployeeChanges;
-import com.jdc.weekend.model.EmployeeRole;
-import com.jdc.weekend.model.Status;
+import com.jdc.weekend.model.constant.EmployeeChanges;
+import com.jdc.weekend.model.constant.EmployeeRole;
+import com.jdc.weekend.model.constant.Status;
 import com.jdc.weekend.model.entity.EmployeeHistory;
 
 public record EmployeeHistoryInfo(

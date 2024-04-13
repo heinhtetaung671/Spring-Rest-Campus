@@ -4,7 +4,7 @@ import java.time.LocalDate;
 import java.util.List;
 
 import com.jdc.weekend.model.AbstractEntity;
-import com.jdc.weekend.model.EmployeeRole;
+import com.jdc.weekend.model.constant.EmployeeRole;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
