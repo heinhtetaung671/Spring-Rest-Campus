@@ -1,5 +1,6 @@
 package com.jdc.weekend.api;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.annotation.Validated;
@@ -22,6 +23,7 @@ import com.jdc.weekend.model.service.LedgerEntryService;
 @RequestMapping("ledger")
 public class LedgetEntryApi {
 
+	@Autowired
 	private LedgerEntryService service;
 	
 	@GetMapping

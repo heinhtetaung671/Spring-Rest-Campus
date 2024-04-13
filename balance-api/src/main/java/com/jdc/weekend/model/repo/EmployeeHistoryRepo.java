@@ -8,7 +8,7 @@ import com.jdc.weekend.model.entity.EmployeeHistroyPk;
 
 public interface EmployeeHistoryRepo extends BaseRepo<EmployeeHistory, EmployeeHistroyPk>{
 
-	@Query("SELECT MAX(hist.id.seqNumber) FROM EmployeeHistory hist WHERE hist.id.employeeId = ?1")
-	long selectMaxIdSeqNumberByIdEmployeeId(int employeeId);
+	@Query("SELECT COALESCE(MAX(hist.id.seqNumber),0) + 1 FROM EmployeeHistory hist WHERE hist.id.employeeId = ?1")
+	int getNextSeqNumber(int employeeId);
 	
 }

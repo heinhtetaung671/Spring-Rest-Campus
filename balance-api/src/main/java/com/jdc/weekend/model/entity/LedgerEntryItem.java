@@ -9,7 +9,7 @@ import lombok.Data;
 @Embeddable
 public class LedgerEntryItem {
 	
-	private String quantity;
+	private int quantity;
 	private String item;
 	private BigDecimal unitPrice;
 }

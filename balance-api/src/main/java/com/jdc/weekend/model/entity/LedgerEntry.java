@@ -1,6 +1,7 @@
 package com.jdc.weekend.model.entity;
 
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.List;
 
 import com.jdc.weekend.model.AbstractEntity;
@@ -31,5 +32,23 @@ public class LedgerEntry extends AbstractEntity{
 	
 	@ElementCollection
 	private List<LedgerEntryItem> items;
+
+	public static final String ID_FORMAT = "%s:%s";
+	
+	public String getStringId() {
+		return "%s:%s".formatted(id.getIssueDate(), id.getSeqNumber());
+	}
+	
+	public static LedgeryEntryPk fromStringId(String strId) {
+		var id = new LedgeryEntryPk();
+		var arr = strId.split(":");
+		if(arr.length > 0) {
+			id.setIssueDate(LocalDate.parse(arr[0]));
+			id.setSeqNumber(Integer.parseInt(arr[1]));
+			return id;
+		} else {
+			throw new IllegalArgumentException();
+		}
+	}
 	
 }

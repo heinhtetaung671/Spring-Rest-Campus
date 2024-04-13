@@ -86,7 +86,6 @@ public class EmployeeService {
 			cq.orderBy(cb.asc(root.get(Employee_.account).get(Account_.name)));
 			return cq;
 		};
-		
 	}
 
 	private Function<CriteriaBuilder, CriteriaQuery<Long>> countFunc(EmployeeSearch search){

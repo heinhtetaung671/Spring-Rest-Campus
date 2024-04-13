@@ -1,23 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-    <fullyQualifiedTypeName name="com.jdc.weekend.model.entity.Category_"/>
-    <fullyQualifiedTypeName name="org.hibernate.jpamodelgen.util.StringUtil"/>
-    <fullyQualifiedTypeName name="org.springframework.util.StringUtils"/>
-    <fullyQualifiedTypeName name="com.jdc.weekend.model.entity.LedgeryEntryPk"/>
-    <fullyQualifiedTypeName name="jakarta.persistence.EmbeddedId"/>
-    <fullyQualifiedTypeName name="lombok.EqualsAndHashCode"/>
-    <fullyQualifiedTypeName name="jakarta.persistence.Entity"/>
-    <fullyQualifiedTypeName name="lombok.Data"/>
-    <fullyQualifiedTypeName name="jakarta.persistence.Id"/>
-    <fullyQualifiedTypeName name="javax.management.relation.Role"/>
-    <fullyQualifiedTypeName name="com.jdc.weekend.model.EmployeeRole"/>
     <fullyQualifiedTypeName name="org.springframework.beans.factory.annotation.Autowired"/>
     <fullyQualifiedTypeName name="jakarta.persistence.Embeddable"/>
     <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.GetMapping"/>
     <fullyQualifiedTypeName name="jakarta.persistence.Column"/>
     <fullyQualifiedTypeName name="org.springframework.context.annotation.AnnotationConfigApplicationContext"/>
     <fullyQualifiedTypeName name="org.springframework.context.event.EventListener"/>
-    <fullyQualifiedTypeName name="com.jdc.weekend.model.entity.Account"/>
     <fullyQualifiedTypeName name="org.springframework.context.annotation.Configuration"/>
     <fullyQualifiedTypeName name="org.springframework.context.annotation.PropertySource"/>
     <fullyQualifiedTypeName name="com.jdc.weekend.model.Status"/>
@@ -43,7 +31,6 @@
     <fullyQualifiedTypeName name="org.springframework.scheduling.annotation.EnableAsync"/>
     <fullyQualifiedTypeName name="com.jdc.weekend.model.EmployeeChanges"/>
     <fullyQualifiedTypeName name="org.springframework.scheduling.annotation.Async"/>
-    <fullyQualifiedTypeName name="com.jdc.weekend.model.event.employee.EmployeeInfoChangesEvent"/>
     <fullyQualifiedTypeName name="com.jdc.weekend.model.repo.EmployeeHistoryRepo"/>
     <fullyQualifiedTypeName name="org.springframework.transaction.event.TransactionalEventListener"/>
     <fullyQualifiedTypeName name="com.jdc.weekend.model.event.employee.EmployeeCreationEvent"/>
@@ -55,9 +42,22 @@
     <fullyQualifiedTypeName name="java.util.List"/>
     <fullyQualifiedTypeName name="com.jdc.weekend.model.entity.EmployeeHistory"/>
     <fullyQualifiedTypeName name="jakarta.persistence.OneToMany"/>
-    <fullyQualifiedTypeName name="com.jdc.weekend.model.entity.Employee"/>
     <fullyQualifiedTypeName name="com.jdc.weekend.api.output.EmployeeInfoDetails"/>
-    <fullyQualifiedTypeName name="com.jdc.weekend.api.output.EmployeeInfo"/>
     <fullyQualifiedTypeName name="com.jdc.weekend.api.output.EmployeeHistoryInfo"/>
     <fullyQualifiedTypeName name="com.jdc.weekend.model.Common"/>
+    <fullyQualifiedTypeName name="com.jdc.weekend.api.output.EmployeeInfo"/>
+    <fullyQualifiedTypeName name="com.jdc.weekend.model.entity.Account"/>
+    <fullyQualifiedTypeName name="jakarta.persistence.criteria.Root"/>
+    <fullyQualifiedTypeName name="com.jdc.weekend.model.entity.Employee"/>
+    <fullyQualifiedTypeName name="java.util.ArrayList"/>
+    <fullyQualifiedTypeName name="jakarta.persistence.criteria.Predicate"/>
+    <fullyQualifiedTypeName name="org.apache.tomcat.util.codec.binary.StringUtils"/>
+    <fullyQualifiedTypeName name="org.springframework.util.StringUtils"/>
+    <fullyQualifiedTypeName name="com.jdc.weekend.model.entity.Account_"/>
+    <fullyQualifiedTypeName name="java.util.function.Function"/>
+    <fullyQualifiedTypeName name="jakarta.persistence.criteria.CriteriaBuilder"/>
+    <fullyQualifiedTypeName name="jakarta.persistence.criteria.CriteriaQuery"/>
+    <fullyQualifiedTypeName name="com.jdc.weekend.api.input.EmployeeSearch"/>
+    <fullyQualifiedTypeName name="com.jdc.weekend.model.entity.Employee_"/>
+    <fullyQualifiedTypeName name="com.jdc.weekend.model.event.employee.EmployeeInfoChangesEvent"/>
 </qualifiedTypeNameHistroy>

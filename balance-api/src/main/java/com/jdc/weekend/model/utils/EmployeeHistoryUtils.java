@@ -3,6 +3,7 @@ package com.jdc.weekend.model.utils;
 import java.time.LocalDate;
 
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.jdc.weekend.model.EmployeeChanges;
 import com.jdc.weekend.model.entity.Employee;
@@ -14,12 +15,13 @@ import lombok.RequiredArgsConstructor;
 
 @Service
 @RequiredArgsConstructor
+@Transactional(readOnly = true)
 public class EmployeeHistoryUtils {
 
 	private final EmployeeHistoryRepo repo;
 	
 	public EmployeeHistory toHistory(Employee employee, EmployeeChanges employeeChanges) {
-		var lastSeqNumber = (int) repo.selectMaxIdSeqNumberByIdEmployeeId(employee.getId());
+		var lastSeqNumber = repo.getNextSeqNumber(employee.getId());
 		var employeeHistory = new EmployeeHistory();
 		
 		employeeHistory.setId(new EmployeeHistroyPk(employee.getId(), lastSeqNumber));
