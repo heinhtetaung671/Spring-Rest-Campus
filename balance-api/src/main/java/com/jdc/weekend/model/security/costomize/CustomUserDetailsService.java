@@ -19,7 +19,7 @@ public class CustomUserDetailsService implements UserDetailsService{
 	@Override
 	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
 		var account = repo.findAccountByLoginId(username).orElseThrow(() -> new UsernameNotFoundException(username));
-		return User.withUsername(username)
+		return User.withUsername(username)	
 				.password(account.getPassword())
 				.authorities(account.getEmployee().getRole().name())
 				.credentialsExpired(account.getStatus() == Status.Applied ? true : false)

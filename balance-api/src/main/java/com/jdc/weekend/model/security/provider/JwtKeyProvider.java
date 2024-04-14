@@ -15,7 +15,7 @@ public class JwtKeyProvider {
 	
 	public static SecretKey getKey(String key) {
 		var bytes = Base64.getDecoder().decode(key);
-		return new SecretKeySpec(bytes, "HMAC/SHA512");
+		return new SecretKeySpec(bytes, "HmacSHA512");
 	}
 	
 	public static String getKey(SecretKey key) {
