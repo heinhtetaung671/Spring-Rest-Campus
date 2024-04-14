@@ -2,6 +2,7 @@ package com.jdc.weekend.model.utils;
 
 import java.time.LocalDate;
 
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.jdc.weekend.api.input.LedgerEntryForm;
@@ -41,8 +42,8 @@ public class LedgerEntryUtils {
 				form.category()));
 		entity.setRemark(form.remark());
 		entity.setItems(form.items().stream().map(LedgerEntryFormItem::toEntity).toList());
-//		entity.setAccount(accountRepo
-//				.findAccountByLoginId(SecurityContextHolder.getContext().getAuthentication().getName()).orElseThrow());
+		entity.setAccount(accountRepo
+				.findAccountByLoginId(SecurityContextHolder.getContext().getAuthentication().getName()).orElseThrow());
 
 		return entity;
 	}

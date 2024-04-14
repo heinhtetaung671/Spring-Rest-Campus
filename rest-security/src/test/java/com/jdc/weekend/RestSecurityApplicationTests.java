@@ -13,6 +13,7 @@ class RestSecurityApplicationTests {
 		var key2 = SecretKeys.getkey(str1);
 		var str2 = SecretKeys.getKeys(key2);
 
+		System.out.println(key);
 		System.out.println(str1);
 		System.out.println(str2);
 		

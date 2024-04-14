@@ -1,20 +1,22 @@
 package com.jdc.weekend;
 
 import org.junit.jupiter.api.Test;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.context.SpringBootTest;
 
-import com.jdc.weekend.model.repo.EmployeeHistoryRepo;
+import com.jdc.weekend.model.security.provider.JwtKeyProvider;
 
-@SpringBootTest
 class BalanceApiApplicationTests {
 
-	@Autowired
-	private EmployeeHistoryRepo repo;
-	
 	@Test
 	void contextLoads() {
-		System.out.println(repo.getNextSeqNumber(1));
+		var key = JwtKeyProvider.getKey();
+		
+		var strKey = JwtKeyProvider.getKey(key);
+		var realKey = JwtKeyProvider.getKey(strKey);
+		
+		var strKey2 = JwtKeyProvider.getKey(realKey);
+		
+		System.out.println(strKey);
+		System.out.println(strKey2);
 	}
 
 }

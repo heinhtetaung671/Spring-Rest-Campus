@@ -4,15 +4,12 @@ import java.time.LocalDate;
 import java.util.List;
 
 import com.jdc.weekend.model.AbstractEntity;
-import com.jdc.weekend.model.constant.BalanceType;
 import com.jdc.weekend.model.utils.LedgerEntryUtils;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.ElementCollection;
 import jakarta.persistence.EmbeddedId;
 import jakarta.persistence.Entity;
-import jakarta.persistence.EnumType;
-import jakarta.persistence.Enumerated;
 import jakarta.persistence.ManyToOne;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -32,8 +29,6 @@ public class LedgerEntry extends AbstractEntity{
 	private String remark;
 	@ManyToOne(optional = false)
 	private Account account;
-	@Enumerated(EnumType.STRING)
-	private BalanceType type;
 	@ElementCollection
 	private List<LedgerEntryItem> items;
 	

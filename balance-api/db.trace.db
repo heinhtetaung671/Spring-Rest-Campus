@@ -1,0 +1,53 @@
+2024-04-14 23:44:20.875764+06:30 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "ACCOUNT" not found (this database is empty); SQL statement:
+insert into account (created_at,created_by,deleted,login_id,modified_at,modified_by,name,password,status,id) values (?,?,?,?,?,?,?,?,?,default) [42104-224]
+2024-04-14 23:47:29.255319+06:30 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "\000a    alter table if exists account \000a       alter column deleted set data type tinyInt [*]default 0"; SQL statement:
+
+    alter table if exists account 
+       alter column deleted set data type tinyInt default 0 [42000-224]
+2024-04-14 23:47:29.261525+06:30 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "\000a    alter table if exists category \000a       alter column deleted set data type tinyInt [*]default 0"; SQL statement:
+
+    alter table if exists category 
+       alter column deleted set data type tinyInt default 0 [42000-224]
+2024-04-14 23:47:29.262769+06:30 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "\000a    alter table if exists employee \000a       alter column deleted set data type tinyInt [*]default 0"; SQL statement:
+
+    alter table if exists employee 
+       alter column deleted set data type tinyInt default 0 [42000-224]
+2024-04-14 23:47:29.263921+06:30 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "\000a    alter table if exists employee_history \000a       alter column deleted set data type tinyInt [*]default 0"; SQL statement:
+
+    alter table if exists employee_history 
+       alter column deleted set data type tinyInt default 0 [42000-224]
+2024-04-14 23:47:29.264953+06:30 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "\000a    alter table if exists ledger_entry \000a       alter column deleted set data type tinyInt [*]default 0"; SQL statement:
+
+    alter table if exists ledger_entry 
+       alter column deleted set data type tinyInt default 0 [42000-224]
+2024-04-14 23:47:54.852490+06:30 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "\000a    alter table if exists account \000a       alter column deleted set data type tinyInt [*]default 0"; SQL statement:
+
+    alter table if exists account 
+       alter column deleted set data type tinyInt default 0 [42000-224]
+2024-04-14 23:47:54.857759+06:30 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "\000a    alter table if exists category \000a       alter column deleted set data type tinyInt [*]default 0"; SQL statement:
+
+    alter table if exists category 
+       alter column deleted set data type tinyInt default 0 [42000-224]
+2024-04-14 23:47:54.859120+06:30 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "\000a    alter table if exists employee \000a       alter column deleted set data type tinyInt [*]default 0"; SQL statement:
+
+    alter table if exists employee 
+       alter column deleted set data type tinyInt default 0 [42000-224]
+2024-04-14 23:47:54.860368+06:30 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "\000a    alter table if exists employee_history \000a       alter column deleted set data type tinyInt [*]default 0"; SQL statement:
+
+    alter table if exists employee_history 
+       alter column deleted set data type tinyInt default 0 [42000-224]
+2024-04-14 23:47:54.862057+06:30 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "\000a    alter table if exists ledger_entry \000a       alter column deleted set data type tinyInt [*]default 0"; SQL statement:
+
+    alter table if exists ledger_entry 
+       alter column deleted set data type tinyInt default 0 [42000-224]

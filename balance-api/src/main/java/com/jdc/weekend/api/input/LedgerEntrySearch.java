@@ -20,7 +20,7 @@ public record LedgerEntrySearch(BalanceType type, LocalDate from, LocalDate to, 
 		var list = new ArrayList<Predicate>();
 		
 		if(null != type) {
-			list.add(cb.equal(root.get(LedgerEntry_.type), type));
+			list.add(cb.equal(root.get(LedgerEntry_.category).type(), type));
 		}
 		
 		if(null != from && null != to) {

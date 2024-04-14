@@ -13,7 +13,4 @@ import com.jdc.weekend.model.BaseRepoImpl;
 @EnableJpaRepositories(repositoryBaseClass = BaseRepoImpl.class)
 @EnableAsync
 public class BalanceApiWebConfig implements WebMvcConfigurer{
-
-	
-	
 }
