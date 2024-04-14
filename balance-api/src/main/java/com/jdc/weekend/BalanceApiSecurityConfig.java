@@ -7,4 +7,13 @@ import org.springframework.context.annotation.PropertySource;
 @PropertySource(value = "classpath:/balance-api.properties")
 public class BalanceApiSecurityConfig {
 
+//	@Bean
+//	SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
+//		http.authorizeHttpRequests(req -> {
+//			req.requestMatchers("/employee").permitAll();
+//		});
+//		
+//		return http.build();
+//	}
+	
 }

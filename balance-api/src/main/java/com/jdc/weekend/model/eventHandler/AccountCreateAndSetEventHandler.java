@@ -16,7 +16,7 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 public class AccountCreateAndSetEventHandler {
 
-	@Value("{employee.default-password}")
+	@Value("${employee.default-password}")
 	private String employeeDefaultPassword;
 	private final AccountRepo accountRepo;
 	

@@ -5,8 +5,8 @@ import com.jdc.weekend.model.entity.Employee;
 
 public class EmployeeInfoChangesEvent extends AbstractEmployeeDataChangesEvent {
 
-	public EmployeeInfoChangesEvent(Employee employee) {
-		super(employee, EmployeeChanges.InfoChanges);
+	public EmployeeInfoChangesEvent(int employeeId) {
+		super(employeeId, EmployeeChanges.InfoChanges);
 	}
 
 	@Override
@@ -16,9 +16,8 @@ public class EmployeeInfoChangesEvent extends AbstractEmployeeDataChangesEvent {
 	}
 
 	@Override
-	public Employee getEmployee() {
-		// TODO Auto-generated method stub
-		return employee;
+	public int getEmployeeId() {
+		return employeeId;
 	}
 
 }

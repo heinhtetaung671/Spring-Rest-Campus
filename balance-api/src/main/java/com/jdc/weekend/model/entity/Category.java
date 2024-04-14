@@ -1,7 +1,7 @@
 package com.jdc.weekend.model.entity;
 
 import com.jdc.weekend.model.AbstractEntity;
-import com.jdc.weekend.model.BalanceType;
+import com.jdc.weekend.model.constant.BalanceType;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;

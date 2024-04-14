@@ -1,12 +1,11 @@
 package com.jdc.weekend.model.event.employee;
 
 import com.jdc.weekend.model.constant.EmployeeChanges;
-import com.jdc.weekend.model.entity.Employee;
 
 public class EmployeeCreationEvent extends AbstractEmployeeDataChangesEvent {
 
-	public EmployeeCreationEvent(Employee employee) {
-		super(employee, EmployeeChanges.Creation);
+	public EmployeeCreationEvent(int employeeId) {
+		super(employeeId, EmployeeChanges.Creation);
 	}
 
 	@Override
@@ -15,7 +14,7 @@ public class EmployeeCreationEvent extends AbstractEmployeeDataChangesEvent {
 	}
 
 	@Override
-	public Employee getEmployee() {
-		return employee;
+	public int getEmployeeId() {
+		return employeeId;
 	}
 }

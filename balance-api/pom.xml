@@ -55,6 +55,7 @@
 			<groupId>org.hibernate.orm</groupId>
 			<artifactId>hibernate-jpamodelgen</artifactId>
 		</dependency>
+
 	</dependencies>
 
 	<build>

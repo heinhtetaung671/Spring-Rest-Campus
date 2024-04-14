@@ -47,7 +47,7 @@ public class EmployeeService {
 		employee.setPhone(form.phone());
 		employee.setEmail(form.email());
 
-		publisher.publishEvent(new EmployeeInfoChangesEvent(employee));
+		publisher.publishEvent(new EmployeeInfoChangesEvent(employee.getId()));
 		return EmployeeInfo.from(employee);
 	}
 
@@ -55,7 +55,7 @@ public class EmployeeService {
 	public EmployeeInfo updateStatus(int id, EmployeeStatusForm form) {
 		var employee = Common.getOne(employeeRepo.findById(id), DomainNamesForExceptionMsg.EMPLOYEE, id);
 		employee.getAccount().setStatus(form.status());
-		publisher.publishEvent(new EmployeeStatusChangeEvent(employee, form.reason()));
+		publisher.publishEvent(new EmployeeStatusChangeEvent(employee.getId(), form.reason()));
 		return EmployeeInfo.from(employee);
 	}
 
@@ -64,7 +64,7 @@ public class EmployeeService {
 		var employee = form.entity();
 		publisher.publishEvent(new AccountCreateAndSetEvent(employee, form.name()));
 		employeeRepo.save(employee);
-		publisher.publishEvent(new EmployeeCreationEvent(employee));
+		publisher.publishEvent(new EmployeeCreationEvent(employee.getId()));
 		return EmployeeInfo.from(employee);
 	}
 

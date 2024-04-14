@@ -11,6 +11,7 @@ import com.jdc.weekend.model.common.Common;
 import com.jdc.weekend.model.constant.DomainNamesForExceptionMsg;
 import com.jdc.weekend.model.entity.LedgerEntry;
 import com.jdc.weekend.model.entity.LedgeryEntryPk;
+import com.jdc.weekend.model.repo.AccountRepo;
 import com.jdc.weekend.model.repo.CategoryRepo;
 import com.jdc.weekend.model.repo.LedgerEntryRepo;
 
@@ -23,6 +24,9 @@ public class LedgerEntryUtils {
 
 	private final LedgerEntryRepo ledgerEntryRepo;
 	private final CategoryRepo categoryRepo;
+	private final AccountRepo accountRepo;
+
+	public static final String ID_FORMAT = "%s:%s";
 
 	public LedgerEntry toEntity(LedgerEntryForm form) {
 		var entity = new LedgerEntry();
@@ -37,8 +41,26 @@ public class LedgerEntryUtils {
 				form.category()));
 		entity.setRemark(form.remark());
 		entity.setItems(form.items().stream().map(LedgerEntryFormItem::toEntity).toList());
-		// need account
-		
+//		entity.setAccount(accountRepo
+//				.findAccountByLoginId(SecurityContextHolder.getContext().getAuthentication().getName()).orElseThrow());
+
 		return entity;
 	}
+
+	public static LedgeryEntryPk fromStringId(String strId) {
+		var id = new LedgeryEntryPk();
+		var arr = strId.split(":");
+		if (arr.length > 0) {
+			id.setIssueDate(LocalDate.parse(arr[0]));
+			id.setSeqNumber(Integer.parseInt(arr[1]));
+			return id;
+		} else {
+			throw new IllegalArgumentException();
+		}
+	}
+
+	public static String formatId(LedgeryEntryPk id) {
+		return ID_FORMAT.formatted(id.getIssueDate(), id.getSeqNumber());
+	}
+
 }

@@ -1,5 +1,7 @@
 package com.jdc.weekend.model.service;
 
+import java.util.function.Function;
+
 import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -12,10 +14,14 @@ import com.jdc.weekend.api.output.LedgerEntryInfo;
 import com.jdc.weekend.model.common.Common;
 import com.jdc.weekend.model.constant.DomainNamesForExceptionMsg;
 import com.jdc.weekend.model.entity.LedgerEntry;
+import com.jdc.weekend.model.entity.LedgerEntry_;
+import com.jdc.weekend.model.entity.LedgeryEntryPk_;
 import com.jdc.weekend.model.repo.CategoryRepo;
 import com.jdc.weekend.model.repo.LedgerEntryRepo;
 import com.jdc.weekend.model.utils.LedgerEntryUtils;
 
+import jakarta.persistence.criteria.CriteriaBuilder;
+import jakarta.persistence.criteria.CriteriaQuery;
 import lombok.RequiredArgsConstructor;
 
 @Service
@@ -28,7 +34,7 @@ public class LedgerEntryService {
 	private final CategoryRepo categoryRepo;
 
 	public LedgerEntryDetails findById(String id) {
-		return LedgerEntryDetails.from(Common.getOne(repo.findById(LedgerEntry.fromStringId(id)),
+		return LedgerEntryDetails.from(Common.getOne(repo.findById(LedgerEntryUtils.fromStringId(id)),
 				DomainNamesForExceptionMsg.LEDGER_ENTRY, id));
 	}
 
@@ -39,7 +45,7 @@ public class LedgerEntryService {
 
 	@Transactional
 	public LedgerEntryInfo update(String id, LedgerEntryForm form) {
-		var entity = Common.getOne(repo.findById(LedgerEntry.fromStringId(id)), DomainNamesForExceptionMsg.LEDGER_ENTRY, id);
+		var entity = Common.getOne(repo.findById(LedgerEntryUtils.fromStringId(id)), DomainNamesForExceptionMsg.LEDGER_ENTRY, id);
 		
 		entity.setCategory(Common.getOne(categoryRepo.findById(form.category()), DomainNamesForExceptionMsg.CATEGORY, form.category()));
 		entity.setItems(form.items().stream().map(LedgerEntryFormItem::toEntity).toList());
@@ -48,8 +54,28 @@ public class LedgerEntryService {
 	}
 
 	public Page<LedgerEntryInfo> search(LedgerEntrySearch search, int page, int size) {
-
-		return null;
+		return repo.search(queryFunc(search), countFunc(search), page, size);
 	}
 
+	private Function<CriteriaBuilder, CriteriaQuery<LedgerEntryInfo>> queryFunc(LedgerEntrySearch search){
+		return cb -> {
+			var cq = cb.createQuery(LedgerEntryInfo.class);
+			var root = cq.from(LedgerEntry.class);
+			LedgerEntryInfo.select(cb, cq, root);
+			cq.where(search.where(cb, root));
+			cq.orderBy(cb.asc(root.get(LedgerEntry_.id).get(LedgeryEntryPk_.issueDate)));
+			return cq;
+		};
+	}
+
+	private Function<CriteriaBuilder, CriteriaQuery<Long>> countFunc(LedgerEntrySearch search){
+		return cb -> {
+			var cq = cb.createQuery(Long.class);
+			var root = cq.from(LedgerEntry.class);
+			cq.select(cb.count(root.get(LedgerEntry_.id)));
+			cq.where(search.where(cb, root));
+			return cq;
+		};
+	}
+	
 }

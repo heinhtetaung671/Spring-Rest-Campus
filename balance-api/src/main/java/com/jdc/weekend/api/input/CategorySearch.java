@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 import org.springframework.util.StringUtils;
 
-import com.jdc.weekend.model.BalanceType;
+import com.jdc.weekend.model.constant.BalanceType;
 import com.jdc.weekend.model.entity.Category;
 import com.jdc.weekend.model.entity.Category_;
 

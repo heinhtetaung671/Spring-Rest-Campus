@@ -1,6 +1,6 @@
 package com.jdc.weekend.api.input;
 
-import com.jdc.weekend.model.BalanceType;
+import com.jdc.weekend.model.constant.BalanceType;
 import com.jdc.weekend.model.entity.Category;
 
 import jakarta.validation.constraints.NotBlank;

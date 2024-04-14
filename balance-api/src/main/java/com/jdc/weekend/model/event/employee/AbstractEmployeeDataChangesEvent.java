@@ -8,7 +8,7 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 public abstract class AbstractEmployeeDataChangesEvent implements EmployeeDataChangesEvent{
 
-	protected final Employee employee;
+	protected final int employeeId;
 	protected final EmployeeChanges employeeChanges;
 	
 }

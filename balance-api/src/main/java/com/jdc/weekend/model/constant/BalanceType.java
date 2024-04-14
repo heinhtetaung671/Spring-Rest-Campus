@@ -1,4 +1,4 @@
-package com.jdc.weekend.model;
+package com.jdc.weekend.model.constant;
 
 public enum BalanceType {
 

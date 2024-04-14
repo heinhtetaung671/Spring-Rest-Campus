@@ -2,9 +2,7 @@ package com.jdc.weekend.model;
 
 import java.time.LocalDateTime;
 
-import org.springframework.data.annotation.CreatedBy;
 import org.springframework.data.annotation.CreatedDate;
-import org.springframework.data.annotation.LastModifiedBy;
 import org.springframework.data.annotation.LastModifiedDate;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
@@ -21,11 +19,9 @@ public abstract class AbstractEntity {
 	@Column(columnDefinition = "tinyInt default 0")
 	private boolean deleted;
 
-	@CreatedBy
 	private String createdBy;
 	@CreatedDate
 	private LocalDateTime createdAt;
-	@LastModifiedBy
 	private String modifiedBy;
 	@LastModifiedDate
 	private LocalDateTime modifiedAt;

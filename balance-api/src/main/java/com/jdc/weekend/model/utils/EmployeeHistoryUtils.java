@@ -33,6 +33,8 @@ public class EmployeeHistoryUtils {
 		entity.setRole(employee.getRole());
 		entity.setChanges(employeeChanges);
 		
+		employee.getEmployeeHistorys().add(entity);
+		entity.setEmployee(employee);
 		return entity;
 	}
 	
@@ -41,6 +43,7 @@ public class EmployeeHistoryUtils {
 		entity.setStatusChangeAt(LocalDate.now());
 		entity.setReason(reason);
 		
+		employee.getEmployeeHistorys().add(entity);
 		return entity;
 	}
 }

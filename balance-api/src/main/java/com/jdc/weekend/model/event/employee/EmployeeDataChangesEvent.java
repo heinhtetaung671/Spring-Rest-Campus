@@ -5,7 +5,7 @@ import com.jdc.weekend.model.entity.Employee;
 
 public interface EmployeeDataChangesEvent {
 
-	Employee getEmployee();
+	int getEmployeeId();
 	EmployeeChanges getEmployeeChanges();
 	
 }
