@@ -14,11 +14,11 @@ import com.jdc.weekend.model.exception.ValidationException;
 @Component
 public class ApiInputValidationAspect {
 
-	@Pointcut("@within(org.springframework.web.bind.annotation.RestController) && args(..,result)")
+	@Pointcut("@within(org.springframework.web.bind.annotation.RestController)")
 	public void apiMethods() {
 	}
 
-	@Before(value = "apiMethods", argNames = "result")
+	@Before(value = "apiMethods() && args(..,result)", argNames = "result")
 	public void validateApiMethod(BindingResult result) {
 		if (result.hasErrors()) {
 			throw new ValidationException(result.getFieldErrors().stream()

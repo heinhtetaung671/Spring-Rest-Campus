@@ -68,7 +68,7 @@ public class JwtTokenProvider {
 	public Authentication parse(String token) {
 		if (StringUtils.hasLength(token)) {
 			try {
-				var jwt = Jwts.parser().requireIssuer(issuer).verifyWith(key).build().parseSignedClaims(token);
+				var jwt = Jwts.parser().requireIssuer(issuer).verifyWith(key).build().parseSignedClaims(token.trim());
 				var principle = jwt.getPayload().getSubject();
 				var credential = jwt.getPayload().get(CLAIM_KEY_FOR_PASSWORD, String.class);
 //				var authorities = Arrays.asList(jwt.getPayload().get(CLAIM_KEY_FOR_AUTHORITIES, String.class).split(","))

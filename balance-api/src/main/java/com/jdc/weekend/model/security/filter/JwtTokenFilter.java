@@ -28,7 +28,7 @@ public class JwtTokenFilter extends OncePerRequestFilter {
 			throws ServletException, IOException {
 
 		if (!loginRequestMatcher.matches(request)) {
-			var token = request.getHeader("Authorization").trim();
+			var token = request.getHeader("Authorization");
 			var emptyContext = SecurityContextHolder.createEmptyContext();
 			emptyContext.setAuthentication(jwtTokenProvider.parse(token));
 			SecurityContextHolder.setContext(emptyContext);
