@@ -30,18 +30,18 @@ public class EmployeeDataChangesEventHandler {
 
 	@TransactionalEventListener
 	public void handleStatusChangeEvent(EmployeeStatusChangeEvent event) {
-		histRepo.save(employeeHistoryUtils.toEntityForStatusChange(getOne(employeeRepo.findById(event.getEmployeeId()), DomainNamesForExceptionMsg.EMPLOYEE, event.getEmployeeId()), event.getEmployeeChanges(),
+		histRepo.save(employeeHistoryUtils.toHistoryForStatusChange(getOne(employeeRepo.findById(event.getEmployeeId()), DomainNamesForExceptionMsg.EMPLOYEE, event.getEmployeeId()), event.getEmployeeChanges(),
 				event.getReason()));
 	}
 
 	@TransactionalEventListener
 	public void handleCreationEvent(EmployeeCreationEvent event) {
-		histRepo.save(employeeHistoryUtils.toEntity(getOne(employeeRepo.findById(event.getEmployeeId()), DomainNamesForExceptionMsg.EMPLOYEE, event.getEmployeeId()), event.getEmployeeChanges()));
+		histRepo.save(employeeHistoryUtils.toHistory(getOne(employeeRepo.findById(event.getEmployeeId()), DomainNamesForExceptionMsg.EMPLOYEE, event.getEmployeeId()), event.getEmployeeChanges()));
 	}
 
 	@TransactionalEventListener
 	public void handleInfoChangesEvent(EmployeeInfoChangesEvent event) {
-		histRepo.save(employeeHistoryUtils.toEntity(getOne(employeeRepo.findById(event.getEmployeeId()), DomainNamesForExceptionMsg.EMPLOYEE, event.getEmployeeId()), event.getEmployeeChanges()));
+		histRepo.save(employeeHistoryUtils.toHistory(getOne(employeeRepo.findById(event.getEmployeeId()), DomainNamesForExceptionMsg.EMPLOYEE, event.getEmployeeId()), event.getEmployeeChanges()));
 	}
 
 }

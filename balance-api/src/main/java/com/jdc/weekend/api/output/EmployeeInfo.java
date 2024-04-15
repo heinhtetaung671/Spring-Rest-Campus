@@ -1,6 +1,6 @@
 package com.jdc.weekend.api.output;
 
-import com.jdc.weekend.model.constant.EmployeeRole;
+import com.jdc.weekend.model.constant.Role;
 import com.jdc.weekend.model.constant.Status;
 import com.jdc.weekend.model.entity.Account_;
 import com.jdc.weekend.model.entity.Employee;
@@ -9,7 +9,7 @@ import com.jdc.weekend.model.entity.Employee_;
 import jakarta.persistence.criteria.CriteriaQuery;
 import jakarta.persistence.criteria.Root;
 
-public record EmployeeInfo(int id, String name, EmployeeRole role, Status status, String phone, String email) {
+public record EmployeeInfo(int id, String name, Role role, Status status, String phone, String email) {
 
 	public static EmployeeInfo from(Employee entity) {
 		return new EmployeeInfo(entity.getId(), entity.getAccount().getName(), entity.getRole(),

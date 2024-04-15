@@ -1,11 +1,11 @@
 package com.jdc.weekend.api.input;
 
-import com.jdc.weekend.model.constant.EmployeeRole;
+import com.jdc.weekend.model.constant.Role;
 import com.jdc.weekend.model.entity.Employee;
 
 public record EmployeeForm(
 		String name,
-		EmployeeRole role,
+		Role role,
 		String phone,
 		String email
 		) {

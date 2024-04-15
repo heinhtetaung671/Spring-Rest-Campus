@@ -4,7 +4,7 @@ import java.time.LocalDate;
 
 import com.jdc.weekend.model.AbstractEntity;
 import com.jdc.weekend.model.constant.EmployeeChanges;
-import com.jdc.weekend.model.constant.EmployeeRole;
+import com.jdc.weekend.model.constant.Role;
 import com.jdc.weekend.model.constant.Status;
 
 import jakarta.persistence.Column;
@@ -37,7 +37,7 @@ public class EmployeeHistory extends AbstractEntity{
 	@Column(nullable = false)
 	private String password;
 	@Column(nullable = false)
-	private EmployeeRole role;
+	private Role role;
 	private LocalDate statusChangeAt;
 	
 	private EmployeeChanges changes;

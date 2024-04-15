@@ -18,26 +18,32 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 import org.springframework.security.web.util.matcher.RequestMatcher;
 
-import com.jdc.weekend.model.security.costomize.JwtTokenFilter;
+import com.jdc.weekend.model.security.filter.JwtTokenExceptionHandlingFilter;
+import com.jdc.weekend.model.security.filter.JwtTokenFilter;
 
 @Configuration
 @PropertySource(value = "classpath:/balance-api.properties")
 public class BalanceApiSecurityConfig {
 
 	@Bean
-	SecurityFilterChain filterChain(HttpSecurity http, JwtTokenFilter jwtTokenFilter) throws Exception {
+	SecurityFilterChain filterChain(HttpSecurity http, JwtTokenFilter jwtTokenFilter,
+			JwtTokenExceptionHandlingFilter jwtTokenExceptionHandlingFilter) throws Exception {
 		http.csrf(csrf -> csrf.disable());
 		http.sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS));
-		
+
 		http.authorizeHttpRequests(req -> {
-			req.anyRequest().permitAll();
+			req.requestMatchers(new AntPathRequestMatcher("/login", "POST"));
+			req.requestMatchers("/employee/**", "/ledger/**", "/category/**").hasAnyAuthority("Employee");
+			req.requestMatchers("/report").hasAnyAuthority("Admin");
+			req.anyRequest().authenticated();
 		});
-		
+
 		http.addFilterBefore(jwtTokenFilter, UsernamePasswordAuthenticationFilter.class);
+		http.addFilterBefore(jwtTokenExceptionHandlingFilter, JwtTokenFilter.class);
 		
 		return http.build();
 	}
-	
+
 	@Bean
 	AuthenticationProvider provider(PasswordEncoder passwordEncoder, UserDetailsService userDetailsService) {
 		var provider = new DaoAuthenticationProvider(passwordEncoder);
@@ -45,24 +51,24 @@ public class BalanceApiSecurityConfig {
 		provider.setHideUserNotFoundExceptions(false);
 		return provider;
 	}
-	
+
 	@Bean
 	RequestMatcher loginRequestMatcher() {
 		return new AntPathRequestMatcher("/login", "POST", true);
 	}
-	
+
 	@Bean
 	PasswordEncoder passwordEncoder() {
 		return new BCryptPasswordEncoder();
 	}
-	
+
 	@Bean
 	AuthenticationManager authenticationManager(AuthenticationConfiguration conf) throws Exception {
-		if(conf.getAuthenticationManager() instanceof ProviderManager pm) {
+		if (conf.getAuthenticationManager() instanceof ProviderManager pm) {
 			pm.setEraseCredentialsAfterAuthentication(false);
 			return pm;
 		}
 		throw new RuntimeException();
 	}
-	
+
 }

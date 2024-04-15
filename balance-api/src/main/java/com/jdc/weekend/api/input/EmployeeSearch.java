@@ -2,7 +2,7 @@ package com.jdc.weekend.api.input;
 
 import java.util.ArrayList;
 
-import com.jdc.weekend.model.constant.EmployeeRole;
+import com.jdc.weekend.model.constant.Role;
 import com.jdc.weekend.model.constant.Status;
 import com.jdc.weekend.model.entity.Account_;
 import com.jdc.weekend.model.entity.Employee;
@@ -12,7 +12,7 @@ import jakarta.persistence.criteria.CriteriaBuilder;
 import jakarta.persistence.criteria.Predicate;
 import jakarta.persistence.criteria.Root;
 
-public record EmployeeSearch(EmployeeRole role, Status status, String keyword) {
+public record EmployeeSearch(Role role, Status status, String keyword) {
 
 	public Predicate[] where(CriteriaBuilder cb, Root<Employee> root) {
 		var list = new ArrayList<Predicate>();

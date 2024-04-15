@@ -10,4 +10,8 @@ public record ApiResponse<T>(ApiResponseStatus status, LocalDateTime responseTim
 		return new ApiResponse<T>(ApiResponseStatus.VALIDATION_ERROR, LocalDateTime.now(), payload);
 	}
 	
+	public static <T> ApiResponse<T> securityError(T payload){
+		return new ApiResponse<T>(ApiResponseStatus.SECURITY_ERROR, LocalDateTime.now(), payload);
+	}
+	
 }

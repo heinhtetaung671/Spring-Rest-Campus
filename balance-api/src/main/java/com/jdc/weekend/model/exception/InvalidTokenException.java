@@ -7,4 +7,8 @@ public class InvalidTokenException extends RuntimeException{
 	public InvalidTokenException() {
 		super("Authorization is invalid or expired!.");
 	}
+	
+	public InvalidTokenException(String message) {
+		super(message);
+	}
 }

@@ -20,7 +20,7 @@ public class EmployeeHistoryUtils {
 
 	private final EmployeeHistoryRepo repo;
 	
-	public EmployeeHistory toEntity(Employee employee, EmployeeChanges employeeChanges) {
+	public EmployeeHistory toHistory(Employee employee, EmployeeChanges employeeChanges) {
 		var lastSeqNumber = repo.getNextSeqNumber(employee.getId());
 		var entity = new EmployeeHistory();
 		
@@ -38,8 +38,8 @@ public class EmployeeHistoryUtils {
 		return entity;
 	}
 	
-	public EmployeeHistory toEntityForStatusChange(Employee employee, EmployeeChanges employeeChanges, String reason) {
-		var entity = toEntity(employee, employeeChanges);
+	public EmployeeHistory toHistoryForStatusChange(Employee employee, EmployeeChanges employeeChanges, String reason) {
+		var entity = toHistory(employee, employeeChanges);
 		entity.setStatusChangeAt(LocalDate.now());
 		entity.setReason(reason);
 		

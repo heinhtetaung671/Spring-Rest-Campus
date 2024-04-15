@@ -10,13 +10,13 @@ public record CategoryForm(
 		@NotNull(message = "Please enter balance type.")
 		BalanceType type,
 		@NotBlank(message = "Please enter name.")
-		String name, String remark) {
+		String name, String description) {
 
 	public Category getEntity() {
 		var entity = new Category();
 		entity.setType(type);
 		entity.setName(name);
-		entity.setDesciption(remark);
+		entity.setDesciption(description);
 		return entity;
 	}
 	

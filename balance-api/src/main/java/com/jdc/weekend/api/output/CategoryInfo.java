@@ -7,7 +7,7 @@ import com.jdc.weekend.model.entity.Category_;
 import jakarta.persistence.criteria.CriteriaQuery;
 import jakarta.persistence.criteria.Root;
 
-public record CategoryInfo(int id, String name, BalanceType type, String remark) {
+public record CategoryInfo(int id, String name, BalanceType type, String description) {
 
 	public static CategoryInfo from(Category category) {
 		return null;

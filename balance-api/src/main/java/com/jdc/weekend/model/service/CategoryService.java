@@ -39,7 +39,7 @@ public class CategoryService {
 	public CategoryInfo update(int id, CategoryForm form) {
 		var entity = getOne(repo.findById(id), DomainNamesForExceptionMsg.CATEGORY , id);
 		entity.setName(form.name());
-		entity.setDesciption(form.remark());
+		entity.setDesciption(form.description());
 		entity.setType(form.type());
 		return CategoryInfo.from(entity);
 	}

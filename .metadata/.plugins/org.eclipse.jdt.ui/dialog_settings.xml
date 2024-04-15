@@ -77,14 +77,13 @@
 		<section name="AddRetention">
 			<item key="enabled" value="true"/>
 			<list key="selectedEnums">
-				<item value="CLASS"/>
+				<item value="RUNTIME"/>
 			</list>
 		</section>
 		<section name="AddTarget">
 			<item key="enabled" value="true"/>
 			<list key="selectedEnums">
-				<item value="FIELD"/>
-				<item value="PARAMETER"/>
+				<item value="TYPE"/>
 			</list>
 		</section>
 	</section>

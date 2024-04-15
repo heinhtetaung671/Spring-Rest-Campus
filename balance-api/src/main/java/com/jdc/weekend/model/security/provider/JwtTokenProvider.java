@@ -2,16 +2,20 @@ package com.jdc.weekend.model.security.provider;
 
 import java.util.Calendar;
 import java.util.Date;
+import java.util.List;
 import java.util.Map;
 
 import javax.crypto.SecretKey;
 
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.security.authentication.AnonymousAuthenticationToken;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.AuthenticationException;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.stereotype.Service;
+import org.springframework.util.StringUtils;
 
 import com.jdc.weekend.model.exception.InvalidTokenException;
 
@@ -62,21 +66,26 @@ public class JwtTokenProvider {
 	}
 
 	public Authentication parse(String token) {
-		var jwt = Jwts.parser().requireIssuer(issuer).verifyWith(key).build().parseSignedClaims(token);
-		var principle = jwt.getPayload().getSubject();
-		var credential = jwt.getPayload().get(CLAIM_KEY_FOR_PASSWORD, String.class);
-//		var authorities = Arrays.asList(jwt.getPayload().get(CLAIM_KEY_FOR_AUTHORITIES, String.class).split(","))
-//				.stream().map(SimpleGrantedAuthority::new).toList();
+		if (StringUtils.hasLength(token)) {
+			try {
+				var jwt = Jwts.parser().requireIssuer(issuer).verifyWith(key).build().parseSignedClaims(token);
+				var principle = jwt.getPayload().getSubject();
+				var credential = jwt.getPayload().get(CLAIM_KEY_FOR_PASSWORD, String.class);
+//				var authorities = Arrays.asList(jwt.getPayload().get(CLAIM_KEY_FOR_AUTHORITIES, String.class).split(","))
+//						.stream().map(SimpleGrantedAuthority::new).toList();
 
-		try {
-			var authentication = authenticationManager
-					.authenticate(UsernamePasswordAuthenticationToken.unauthenticated(principle, credential));
-			((UsernamePasswordAuthenticationToken) authentication).eraseCredentials();
-			return authentication;
-		} catch (JwtException | AuthenticationException e) {
-			throw new InvalidTokenException();
+				var authentication = authenticationManager
+						.authenticate(UsernamePasswordAuthenticationToken.unauthenticated(principle, credential));
+				((UsernamePasswordAuthenticationToken) authentication).eraseCredentials();
+				return authentication;
+			} catch (JwtException | AuthenticationException e) {
+				throw new InvalidTokenException();
+			}
+
+		} else {
+			return new AnonymousAuthenticationToken("anonymousUser", "1",
+					List.of(new SimpleGrantedAuthority("Anonymous")));
 		}
-
 	}
 
 }

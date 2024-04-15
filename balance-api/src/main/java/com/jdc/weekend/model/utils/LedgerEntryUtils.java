@@ -1,5 +1,7 @@
 package com.jdc.weekend.model.utils;
 
+import static com.jdc.weekend.model.common.Common.getOne;
+
 import java.time.LocalDate;
 
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -42,8 +44,9 @@ public class LedgerEntryUtils {
 				form.category()));
 		entity.setRemark(form.remark());
 		entity.setItems(form.items().stream().map(LedgerEntryFormItem::toEntity).toList());
-		entity.setAccount(accountRepo
-				.findAccountByLoginId(SecurityContextHolder.getContext().getAuthentication().getName()).orElseThrow());
+		entity.setAccount(getOne(
+				accountRepo.findAccountByLoginId(SecurityContextHolder.getContext().getAuthentication().getName()),
+				DomainNamesForExceptionMsg.ACCOUNT, SecurityContextHolder.getContext().getAuthentication().getName()));
 
 		return entity;
 	}
@@ -56,7 +59,7 @@ public class LedgerEntryUtils {
 			id.setSeqNumber(Integer.parseInt(arr[1]));
 			return id;
 		} else {
-			throw new IllegalArgumentException();
+			throw new IllegalArgumentException("Invalid LedgerEntry Id Format.");
 		}
 	}
 
