@@ -1,19 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-    <fullyQualifiedTypeName name="com.jdc.weekend.model.constant.Status"/>
-    <fullyQualifiedTypeName name="org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder"/>
-    <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.RequestMapping"/>
-    <fullyQualifiedTypeName name="java.time.LocalDate"/>
-    <fullyQualifiedTypeName name="com.jdc.weekend.api.input.LoginForm"/>
-    <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.PostMapping"/>
-    <fullyQualifiedTypeName name="org.springframework.validation.BindingResult"/>
-    <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.RequestBody"/>
-    <fullyQualifiedTypeName name="jakarta.validation.Valid"/>
-    <fullyQualifiedTypeName name="org.springframework.validation.annotation.Validated"/>
     <fullyQualifiedTypeName name="com.jdc.weekend.model.service.LoginService"/>
     <fullyQualifiedTypeName name="org.springframework.security.web.access.intercept.AuthorizationFilter"/>
     <fullyQualifiedTypeName name="org.springframework.security.config.annotation.authentication.configuration.AuthenticationConfiguration"/>
-    <fullyQualifiedTypeName name="org.springframework.stereotype.Component"/>
     <fullyQualifiedTypeName name="org.springframework.security.authentication.AuthenticationProvider"/>
     <fullyQualifiedTypeName name="org.springframework.security.crypto.password.PasswordEncoder"/>
     <fullyQualifiedTypeName name="org.springframework.security.core.userdetails.UserDetailsService"/>
@@ -25,8 +14,6 @@
     <fullyQualifiedTypeName name="javax.crypto.SecretKey"/>
     <fullyQualifiedTypeName name="com.jdc.weekend.model.security.provider.JwtKeyProvider"/>
     <fullyQualifiedTypeName name="io.jsonwebtoken.Jwts"/>
-    <fullyQualifiedTypeName name="java.util.stream.Collectors"/>
-    <fullyQualifiedTypeName name="java.util.Map"/>
     <fullyQualifiedTypeName name="org.springframework.security.authentication.ProviderManager"/>
     <fullyQualifiedTypeName name="java.util.Date"/>
     <fullyQualifiedTypeName name="java.util.Calendar"/>
@@ -39,13 +26,11 @@
     <fullyQualifiedTypeName name="lombok.RequiredArgsConstructor"/>
     <fullyQualifiedTypeName name="java.lang.Exception"/>
     <fullyQualifiedTypeName name="org.springframework.security.authentication.UsernamePasswordAuthenticationToken"/>
-    <fullyQualifiedTypeName name="java.lang.RuntimeException"/>
     <fullyQualifiedTypeName name="com.jdc.weekend.model.exception.InvalidTokenException"/>
     <fullyQualifiedTypeName name="io.jsonwebtoken.JwtException"/>
     <fullyQualifiedTypeName name="org.springframework.security.core.AuthenticationException"/>
     <fullyQualifiedTypeName name="com.jdc.weekend.api.output.LoginResult"/>
     <fullyQualifiedTypeName name="org.springframework.beans.factory.annotation.Value"/>
-    <fullyQualifiedTypeName name="java.time.LocalDateTime"/>
     <fullyQualifiedTypeName name="org.springframework.web.filter.OncePerRequestFilter"/>
     <fullyQualifiedTypeName name="org.springframework.security.web.util.matcher.AntPathRequestMatcher"/>
     <fullyQualifiedTypeName name="org.springframework.context.annotation.Bean"/>
@@ -60,4 +45,19 @@
     <fullyQualifiedTypeName name="org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter"/>
     <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.RestController"/>
     <fullyQualifiedTypeName name="jakarta.annotation.PostConstruct"/>
+    <fullyQualifiedTypeName name="org.aspectj.lang.annotation.Aspect"/>
+    <fullyQualifiedTypeName name="org.springframework.stereotype.Component"/>
+    <fullyQualifiedTypeName name="org.aspectj.lang.annotation.Pointcut"/>
+    <fullyQualifiedTypeName name="com.jdc.weekend.model.constant.ApiResponseStatus"/>
+    <fullyQualifiedTypeName name="java.time.LocalDateTime"/>
+    <fullyQualifiedTypeName name="org.springframework.validation.BindingResult"/>
+    <fullyQualifiedTypeName name="org.aspectj.lang.annotation.Before"/>
+    <fullyQualifiedTypeName name="java.lang.RuntimeException"/>
+    <fullyQualifiedTypeName name="java.util.stream.Collectors"/>
+    <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.RestControllerAdvice"/>
+    <fullyQualifiedTypeName name="com.jdc.weekend.model.exception.ValidationException"/>
+    <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.ExceptionHandler"/>
+    <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.ResponseStatus"/>
+    <fullyQualifiedTypeName name="java.util.Map"/>
+    <fullyQualifiedTypeName name="com.jdc.weekend.api.output.ApiResponse"/>
 </qualifiedTypeNameHistroy>
