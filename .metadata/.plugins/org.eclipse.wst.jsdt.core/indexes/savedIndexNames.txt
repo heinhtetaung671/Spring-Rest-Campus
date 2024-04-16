@@ -1,1 +1,0 @@
-INDEX VERSION 1.4+/home/heinhtetaung/myData/workspaces/spring-rest/.metadata/.plugins/org.eclipse.wst.jsdt.core/indexes

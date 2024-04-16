@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.jdc.weekend.api.input.LoginForm;
+import com.jdc.weekend.api.output.ApiResponse;
 import com.jdc.weekend.api.output.LoginResult;
 import com.jdc.weekend.model.service.LoginService;
 
@@ -21,8 +22,8 @@ public class LoginApi {
 	private final LoginService service;
 	
 	@PostMapping
-	LoginResult login(@RequestBody @Validated LoginForm form, BindingResult result) {
-		return service.doLogin(form);
+	ApiResponse<LoginResult> login(@RequestBody @Validated LoginForm form, BindingResult result) {
+		return ApiResponse.success(service.doLogin(form));
 	}
 	
 }

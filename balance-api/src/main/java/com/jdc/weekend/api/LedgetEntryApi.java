@@ -28,25 +28,25 @@ public class LedgetEntryApi {
 	private LedgerEntryService service;
 	
 	@GetMapping
-	Page<LedgerEntryInfo> search(LedgerEntrySearch search,
+	ApiResponse<Page<LedgerEntryInfo>> search(LedgerEntrySearch search,
 			@RequestParam(required = false, defaultValue = "0") int page,
-			@RequestParam(required = false, defaultValue = "0") int size) {
-		return service.search(search, page, size);
+			@RequestParam(required = false, defaultValue = "1") int size) {
+		return ApiResponse.success(service.search(search, page, size));
 	}
 	
 	@PostMapping
-	LedgerEntryInfo create(@RequestBody @Validated LedgerEntryForm form, BindingResult result) {
-		return service.create(form);
+	ApiResponse<LedgerEntryInfo> create(@RequestBody @Validated LedgerEntryForm form, BindingResult result) {
+		return ApiResponse.success(service.create(form));
 	}
 	
 	@PutMapping
-	LedgerEntryInfo update(@PathVariable String id, @RequestBody @Validated LedgerEntryForm form, BindingResult result) {
-		return service.update(id, form);
+	ApiResponse<LedgerEntryInfo> update(@PathVariable String id, @RequestBody @Validated LedgerEntryForm form, BindingResult result) {
+		return ApiResponse.success(service.update(id, form));
 	}
 	
 	@GetMapping("{id}")
-	LedgerEntryDetails findById(@PathVariable String id) {
-		return service.findById(id);
+	ApiResponse<LedgerEntryDetails> findById(@PathVariable String id) {
+		return ApiResponse.success(service.findById(id));
 	}
 	
 	@GetMapping("{id}/edit")

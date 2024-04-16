@@ -1,5 +1,0 @@
-RepositorySearchDialogDeepSearch=false
-RepositorySearchDialogSearchPath=/home/heinhtetaung/git
-commit_dialog_history_messages=<?xml version\="1.0" encoding\="UTF-8"?>\n<messages>\n<message>fix point cut expression</message>\n<message>add security</message>\n<message>i think i fixed some errors</message>\n<message>add login security with some error hehe</message>\n<message>finish all ledger entry api methods but have not been tested</message>\n<message>add ledgerEntry findById api</message>\n<message>add employee search api&\#x0A;</message>\n<message>finish all employee api except from search api</message>\n<message>add some entity</message>\n<message>fix error in rest security project</message>\n</messages>
-eclipse.preferences.version=1
-repositories_view_filters=<?xml version\="1.0" encoding\="UTF-8"?>\n<FilterCache/>

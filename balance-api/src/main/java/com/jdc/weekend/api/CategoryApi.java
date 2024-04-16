@@ -28,28 +28,28 @@ public class CategoryApi {
 	private CategoryService service;
 	
 	@GetMapping
-	List<CategoryInfo> search(CategorySearch search){
-		return service.search(search);
+	ApiResponse<List<CategoryInfo>> search(CategorySearch search){
+		return ApiResponse.success(service.search(search));
 	}
 	
 	@PostMapping("upload")
-	List<CategoryInfo> upload(MultipartFile file){
-		return service.upload(file);
+	ApiResponse<List<CategoryInfo>> upload(MultipartFile file){
+		return ApiResponse.success(service.upload(file));
 	}
 	
 	@PostMapping
-	CategoryInfo create(@RequestBody CategoryForm form, BindingResult result) {
-		return service.create(form);
+	ApiResponse<CategoryInfo> create(@RequestBody CategoryForm form, BindingResult result) {
+		return ApiResponse.success(service.create(form));
 	}
 	
 	@GetMapping("{id}")
-	CategoryInfo findById(@PathVariable int id) {
-		return service.findById(id);
+	ApiResponse<CategoryInfo> findById(@PathVariable int id) {
+		return ApiResponse.success(service.findById(id));
 	}
 	
 	@PutMapping("{id}")
-	CategoryInfo update(@PathVariable int id, CategoryForm form) {
-		return service.update(id, form);
+	ApiResponse<CategoryInfo> update(@PathVariable int id, CategoryForm form) {
+		return ApiResponse.success(service.update(id, form));
 	}
 	
 	@GetMapping("for-select-box")

@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.jdc.weekend.api.input.BalanceSearch;
+import com.jdc.weekend.api.output.ApiResponse;
 import com.jdc.weekend.api.output.BalanceReport;
 import com.jdc.weekend.model.service.BalanceService;
 
@@ -18,9 +19,9 @@ public class BalanceReportApi {
 	private BalanceService service;
 	
 	@GetMapping
-	BalanceReport search(BalanceSearch search, @RequestParam(required = false, defaultValue = "0") int page,
+	ApiResponse<BalanceReport> search(BalanceSearch search, @RequestParam(required = false, defaultValue = "0") int page,
 			@RequestParam(required = false, defaultValue = "0") int size) {
-		return service.search(search, page, size);
+		return ApiResponse.success(service.search(search, page, size));
 	}
 
 }

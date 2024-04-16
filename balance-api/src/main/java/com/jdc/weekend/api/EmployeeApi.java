@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.jdc.weekend.api.input.EmployeeForm;
 import com.jdc.weekend.api.input.EmployeeSearch;
 import com.jdc.weekend.api.input.EmployeeStatusForm;
+import com.jdc.weekend.api.output.ApiResponse;
 import com.jdc.weekend.api.output.EmployeeInfo;
 import com.jdc.weekend.api.output.EmployeeInfoDetails;
 import com.jdc.weekend.model.service.EmployeeService;
@@ -28,35 +29,35 @@ public class EmployeeApi {
 	private EmployeeService service;
 	
 	@GetMapping
-	Page<EmployeeInfo> search(EmployeeSearch search,
+	ApiResponse<Page<EmployeeInfo>> search(EmployeeSearch search,
 			@RequestParam(required = false, defaultValue = "0") int page,
 			@RequestParam(required = false, defaultValue = "10") int size) {
-		return service.search(search, page, size);
+		return ApiResponse.success(service.search(search, page, size));
 	}
 	
 	@GetMapping("{id}")
-	EmployeeInfoDetails findById(@PathVariable int id) {
-		return service.findById(id);
+	ApiResponse<EmployeeInfoDetails> findById(@PathVariable int id) {
+		return ApiResponse.success(service.findById(id));
 	}
 	
 	@GetMapping("{id}/edit")
-	EmployeeForm findByIdForEdit(@PathVariable int id) {
-		return service.findByIdForEdit(id);
+	ApiResponse<EmployeeForm> findByIdForEdit(@PathVariable int id) {
+		return ApiResponse.success(service.findByIdForEdit(id));
 	}
 	
 	@PostMapping
-	EmployeeInfo create(@RequestBody @Validated EmployeeForm form, BindingResult result) {
-		return service.create(form);
+	ApiResponse<EmployeeInfo> create(@RequestBody @Validated EmployeeForm form, BindingResult result) {
+		return ApiResponse.success(service.create(form));
 	}
 	
 	@PutMapping("{id}")
-	EmployeeInfo update(@PathVariable int id, @RequestBody @Validated EmployeeForm form, BindingResult result) {
-		return service.update(id, form);
+	ApiResponse<EmployeeInfo> update(@PathVariable int id, @RequestBody @Validated EmployeeForm form, BindingResult result) {
+		return ApiResponse.success(service.update(id, form));
 	}
 	
 	@PutMapping("{id}/status")
-	EmployeeInfo updateStatus(@PathVariable int id, @RequestBody @Validated EmployeeStatusForm form, BindingResult result) {
-		return service.updateStatus(id, form);
+	ApiResponse<EmployeeInfo> updateStatus(@PathVariable int id, @RequestBody @Validated EmployeeStatusForm form, BindingResult result) {
+		return ApiResponse.success(service.updateStatus(id, form));
 	}
 	
 }
