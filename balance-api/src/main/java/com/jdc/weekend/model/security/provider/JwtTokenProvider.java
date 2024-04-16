@@ -59,7 +59,8 @@ public class JwtTokenProvider {
 		var calender = Calendar.getInstance();
 		calender.setTime(today);
 		calender.add(Calendar.MINUTE, tokenLifeTime);
-
+		System.out.println(calender);
+		
 		return Jwts.builder().issuer(issuer).signWith(key).issuedAt(today).expiration(calender.getTime())
 				.subject(authentication.getName())
 				.claims(Map.of(CLAIM_KEY_FOR_PASSWORD, authentication.getCredentials().toString())).compact();
@@ -69,7 +70,7 @@ public class JwtTokenProvider {
 		if (StringUtils.hasLength(token)) {
 			try {
 				var jwt = Jwts.parser().requireIssuer(issuer).verifyWith(key).build().parseSignedClaims(token.trim());
-				var principle = jwt.getPayload().getSubject();
+				var principle = jwt.getPayload().getSubject(); 
 				var credential = jwt.getPayload().get(CLAIM_KEY_FOR_PASSWORD, String.class);
 //				var authorities = Arrays.asList(jwt.getPayload().get(CLAIM_KEY_FOR_AUTHORITIES, String.class).split(","))
 //						.stream().map(SimpleGrantedAuthority::new).toList();

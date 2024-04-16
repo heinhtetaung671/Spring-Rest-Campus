@@ -40,8 +40,8 @@ public class LedgerEntryUtils {
 
 		entity.setId(id);
 		entity.setIssueAt(LocalDate.now());
-		entity.setCategory(Common.getOne(categoryRepo.findById(form.category()), DomainNamesForExceptionMsg.CATEGORY,
-				form.category()));
+		entity.setCategory(Common.getOne(categoryRepo.findById(form.categoryId()), DomainNamesForExceptionMsg.CATEGORY,
+				form.categoryId()));
 		entity.setRemark(form.remark());
 		entity.setItems(form.items().stream().map(LedgerEntryFormItem::toEntity).toList());
 		entity.setAccount(getOne(
@@ -49,22 +49,6 @@ public class LedgerEntryUtils {
 				DomainNamesForExceptionMsg.ACCOUNT, SecurityContextHolder.getContext().getAuthentication().getName()));
 
 		return entity;
-	}
-
-	public static LedgeryEntryPk fromStringId(String strId) {
-		var id = new LedgeryEntryPk();
-		var arr = strId.split(":");
-		if (arr.length > 0) {
-			id.setIssueDate(LocalDate.parse(arr[0]));
-			id.setSeqNumber(Integer.parseInt(arr[1]));
-			return id;
-		} else {
-			throw new IllegalArgumentException("Invalid LedgerEntry Id Format.");
-		}
-	}
-
-	public static String formatId(LedgeryEntryPk id) {
-		return ID_FORMAT.formatted(id.getIssueDate(), id.getSeqNumber());
 	}
 
 }

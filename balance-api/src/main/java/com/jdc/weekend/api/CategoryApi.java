@@ -15,6 +15,8 @@ import org.springframework.web.multipart.MultipartFile;
 
 import com.jdc.weekend.api.input.CategoryForm;
 import com.jdc.weekend.api.input.CategorySearch;
+import com.jdc.weekend.api.output.ApiResponse;
+import com.jdc.weekend.api.output.CategoryForSelectBox;
 import com.jdc.weekend.api.output.CategoryInfo;
 import com.jdc.weekend.model.service.CategoryService;
 
@@ -48,6 +50,11 @@ public class CategoryApi {
 	@PutMapping("{id}")
 	CategoryInfo update(@PathVariable int id, CategoryForm form) {
 		return service.update(id, form);
+	}
+	
+	@GetMapping("for-select-box")
+	ApiResponse<List<CategoryForSelectBox>> loadAllForSelectBox(){
+		return ApiResponse.success(service.loadAllForSelectBox());
 	}
 	
 }

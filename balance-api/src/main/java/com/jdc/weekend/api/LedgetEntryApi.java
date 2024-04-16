@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.jdc.weekend.api.input.LedgerEntryForm;
 import com.jdc.weekend.api.input.LedgerEntrySearch;
+import com.jdc.weekend.api.output.ApiResponse;
 import com.jdc.weekend.api.output.LedgerEntryDetails;
 import com.jdc.weekend.api.output.LedgerEntryInfo;
 import com.jdc.weekend.model.service.LedgerEntryService;
@@ -46,6 +47,11 @@ public class LedgetEntryApi {
 	@GetMapping("{id}")
 	LedgerEntryDetails findById(@PathVariable String id) {
 		return service.findById(id);
+	}
+	
+	@GetMapping("{id}/edit")
+	ApiResponse<LedgerEntryForm> findByIdForEdit(@PathVariable String id){
+		return ApiResponse.success(service.findByIdForEdit(id));
 	}
 	
 }

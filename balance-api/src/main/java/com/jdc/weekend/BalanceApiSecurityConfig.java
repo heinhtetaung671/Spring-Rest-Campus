@@ -32,18 +32,18 @@ public class BalanceApiSecurityConfig {
 		http.sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS));
 
 		http.authorizeHttpRequests(req -> {
-			req.requestMatchers(new AntPathRequestMatcher("/login", "POST"));
-			req.requestMatchers("/employee/**", "/ledger/**", "/category/**").hasAnyAuthority("Employee");
+			req.requestMatchers(new AntPathRequestMatcher("/login", "POST")).permitAll();
+			req.requestMatchers("/employee/**").permitAll();
+			req.requestMatchers( "/ledger/**", "/category/**").hasAnyAuthority("Admin");
 			req.requestMatchers("/report").hasAnyAuthority("Admin");
 			req.anyRequest().authenticated();
 		});
 
 		http.addFilterBefore(jwtTokenFilter, UsernamePasswordAuthenticationFilter.class);
 		http.addFilterBefore(jwtTokenExceptionHandlingFilter, JwtTokenFilter.class);
-		
 		return http.build();
 	}
-
+	
 	@Bean
 	AuthenticationProvider provider(PasswordEncoder passwordEncoder, UserDetailsService userDetailsService) {
 		var provider = new DaoAuthenticationProvider(passwordEncoder);

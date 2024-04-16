@@ -1,19 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-    <fullyQualifiedTypeName name="java.util.Date"/>
-    <fullyQualifiedTypeName name="java.util.Calendar"/>
-    <fullyQualifiedTypeName name="org.springframework.security.core.Authentication"/>
-    <fullyQualifiedTypeName name="io.jsonwebtoken.Jwts.SIG"/>
-    <fullyQualifiedTypeName name="java.lang.String"/>
-    <fullyQualifiedTypeName name="io.jsonwebtoken.lang.Arrays"/>
-    <fullyQualifiedTypeName name="org.springframework.security.authentication.AuthenticationManager"/>
-    <fullyQualifiedTypeName name="lombok.RequiredArgsConstructor"/>
-    <fullyQualifiedTypeName name="java.lang.Exception"/>
-    <fullyQualifiedTypeName name="org.springframework.security.authentication.UsernamePasswordAuthenticationToken"/>
-    <fullyQualifiedTypeName name="io.jsonwebtoken.JwtException"/>
-    <fullyQualifiedTypeName name="org.springframework.security.core.AuthenticationException"/>
-    <fullyQualifiedTypeName name="com.jdc.weekend.api.output.LoginResult"/>
-    <fullyQualifiedTypeName name="org.springframework.beans.factory.annotation.Value"/>
     <fullyQualifiedTypeName name="org.springframework.context.annotation.Bean"/>
     <fullyQualifiedTypeName name="org.springframework.security.web.util.matcher.RequestMatcher"/>
     <fullyQualifiedTypeName name="org.springframework.stereotype.Service"/>
@@ -42,17 +28,12 @@
     <fullyQualifiedTypeName name="com.fasterxml.jackson.databind.ObjectMapper"/>
     <fullyQualifiedTypeName name="org.springframework.boot.autoconfigure.AutoConfigureOrder"/>
     <fullyQualifiedTypeName name="org.springframework.beans.factory.annotation.Autowired"/>
-    <fullyQualifiedTypeName name="com.jdc.weekend.model.constant.ApiResponseStatus"/>
-    <fullyQualifiedTypeName name="java.time.LocalDateTime"/>
-    <fullyQualifiedTypeName name="com.jdc.weekend.api.output.ApiResponse"/>
     <fullyQualifiedTypeName name="org.apache.catalina.connector.Response"/>
     <fullyQualifiedTypeName name="org.springframework.security.web.context.HttpSessionSecurityContextRepository"/>
     <fullyQualifiedTypeName name="com.jdc.weekend.model.exception.InvalidTokenException"/>
-    <fullyQualifiedTypeName name="com.jdc.weekend.model.constant.DomainNamesForExceptionMsg"/>
     <fullyQualifiedTypeName name="org.springframework.util.StringUtils"/>
     <fullyQualifiedTypeName name="org.springframework.security.authentication.AnonymousAuthenticationToken"/>
     <fullyQualifiedTypeName name="org.springframework.security.core.authority.SimpleGrantedAuthority"/>
-    <fullyQualifiedTypeName name="java.util.List"/>
     <fullyQualifiedTypeName name="org.springframework.security.authorization.AuthorizationManager"/>
     <fullyQualifiedTypeName name="org.springframework.security.web.access.intercept.AuthorizationFilter"/>
     <fullyQualifiedTypeName name="org.springframework.security.web.access.ExceptionTranslationFilter"/>
@@ -60,4 +41,23 @@
     <fullyQualifiedTypeName name="com.jdc.weekend.model.security.filter.JwtTokenFilter"/>
     <fullyQualifiedTypeName name="org.springframework.http.HttpMethod"/>
     <fullyQualifiedTypeName name="org.springframework.security.web.util.matcher.AntPathRequestMatcher"/>
+    <fullyQualifiedTypeName name="com.jdc.weekend.api.output.CategoryInfo"/>
+    <fullyQualifiedTypeName name="java.time.LocalDate"/>
+    <fullyQualifiedTypeName name="com.jdc.weekend.model.constant.ApiResponseStatus"/>
+    <fullyQualifiedTypeName name="com.jdc.weekend.model.entity.LedgerEntry"/>
+    <fullyQualifiedTypeName name="com.jdc.weekend.api.output.ApiResponse"/>
+    <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.GetMapping"/>
+    <fullyQualifiedTypeName name="java.util.function.Function"/>
+    <fullyQualifiedTypeName name="jakarta.persistence.criteria.CriteriaBuilder"/>
+    <fullyQualifiedTypeName name="jakarta.persistence.criteria.CriteriaQuery"/>
+    <fullyQualifiedTypeName name="java.util.List"/>
+    <fullyQualifiedTypeName name="com.jdc.weekend.api.output.CategoryForSelectBox"/>
+    <fullyQualifiedTypeName name="com.jdc.weekend.model.entity.Category_"/>
+    <fullyQualifiedTypeName name="org.springframework.transaction.annotation.Transactional"/>
+    <fullyQualifiedTypeName name="com.jdc.weekend.api.input.LedgerEntryForm"/>
+    <fullyQualifiedTypeName name="com.jdc.weekend.model.utils.LedgerEntryUtils"/>
+    <fullyQualifiedTypeName name="com.jdc.weekend.model.constant.DomainNamesForExceptionMsg"/>
+    <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.PathVariable"/>
+    <fullyQualifiedTypeName name="java.util.Date"/>
+    <fullyQualifiedTypeName name="java.time.LocalDateTime"/>
 </qualifiedTypeNameHistroy>

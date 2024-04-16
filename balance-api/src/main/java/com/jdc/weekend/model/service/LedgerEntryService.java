@@ -1,5 +1,7 @@
 package com.jdc.weekend.model.service;
 
+import static com.jdc.weekend.model.common.Common.getOne;
+
 import java.util.function.Function;
 
 import org.springframework.data.domain.Page;
@@ -15,6 +17,7 @@ import com.jdc.weekend.model.common.Common;
 import com.jdc.weekend.model.constant.DomainNamesForExceptionMsg;
 import com.jdc.weekend.model.entity.LedgerEntry;
 import com.jdc.weekend.model.entity.LedgerEntry_;
+import com.jdc.weekend.model.entity.LedgeryEntryPk;
 import com.jdc.weekend.model.entity.LedgeryEntryPk_;
 import com.jdc.weekend.model.repo.CategoryRepo;
 import com.jdc.weekend.model.repo.LedgerEntryRepo;
@@ -34,7 +37,7 @@ public class LedgerEntryService {
 	private final CategoryRepo categoryRepo;
 
 	public LedgerEntryDetails findById(String id) {
-		return LedgerEntryDetails.from(Common.getOne(repo.findById(LedgerEntryUtils.fromStringId(id)),
+		return LedgerEntryDetails.from(Common.getOne(repo.findById(LedgeryEntryPk.parse(id)),
 				DomainNamesForExceptionMsg.LEDGER_ENTRY, id));
 	}
 
@@ -45,9 +48,11 @@ public class LedgerEntryService {
 
 	@Transactional
 	public LedgerEntryInfo update(String id, LedgerEntryForm form) {
-		var entity = Common.getOne(repo.findById(LedgerEntryUtils.fromStringId(id)), DomainNamesForExceptionMsg.LEDGER_ENTRY, id);
-		
-		entity.setCategory(Common.getOne(categoryRepo.findById(form.category()), DomainNamesForExceptionMsg.CATEGORY, form.category()));
+		var entity = Common.getOne(repo.findById(LedgeryEntryPk.parse(id)),
+				DomainNamesForExceptionMsg.LEDGER_ENTRY, id);
+
+		entity.setCategory(Common.getOne(categoryRepo.findById(form.categoryId()), DomainNamesForExceptionMsg.CATEGORY,
+				form.categoryId()));
 		entity.setItems(form.items().stream().map(LedgerEntryFormItem::toEntity).toList());
 		entity.setRemark(form.remark());
 		return LedgerEntryInfo.from(entity);
@@ -57,7 +62,7 @@ public class LedgerEntryService {
 		return repo.search(queryFunc(search), countFunc(search), page, size);
 	}
 
-	private Function<CriteriaBuilder, CriteriaQuery<LedgerEntryInfo>> queryFunc(LedgerEntrySearch search){
+	private Function<CriteriaBuilder, CriteriaQuery<LedgerEntryInfo>> queryFunc(LedgerEntrySearch search) {
 		return cb -> {
 			var cq = cb.createQuery(LedgerEntryInfo.class);
 			var root = cq.from(LedgerEntry.class);
@@ -68,7 +73,7 @@ public class LedgerEntryService {
 		};
 	}
 
-	private Function<CriteriaBuilder, CriteriaQuery<Long>> countFunc(LedgerEntrySearch search){
+	private Function<CriteriaBuilder, CriteriaQuery<Long>> countFunc(LedgerEntrySearch search) {
 		return cb -> {
 			var cq = cb.createQuery(Long.class);
 			var root = cq.from(LedgerEntry.class);
@@ -77,5 +82,10 @@ public class LedgerEntryService {
 			return cq;
 		};
 	}
-	
+
+	public LedgerEntryForm findByIdForEdit(String id) {
+		return LedgerEntryForm.from(
+				getOne(repo.findById(LedgeryEntryPk.parse(id)), DomainNamesForExceptionMsg.LEDGER_ENTRY, id));
+	}
+
 }

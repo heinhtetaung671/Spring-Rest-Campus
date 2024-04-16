@@ -10,7 +10,7 @@ import jakarta.persistence.criteria.Root;
 public record CategoryInfo(int id, String name, BalanceType type, String description) {
 
 	public static CategoryInfo from(Category category) {
-		return null;
+		return new CategoryInfo(category.getId(), category.getName(), category.getType(), category.getDesciption());
 	}
 
 	public static void select(CriteriaQuery<CategoryInfo> cq, Root<Category> root) {

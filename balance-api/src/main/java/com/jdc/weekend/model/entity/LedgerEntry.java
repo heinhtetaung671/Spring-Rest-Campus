@@ -4,7 +4,6 @@ import java.time.LocalDate;
 import java.util.List;
 
 import com.jdc.weekend.model.AbstractEntity;
-import com.jdc.weekend.model.utils.LedgerEntryUtils;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.ElementCollection;
@@ -33,7 +32,7 @@ public class LedgerEntry extends AbstractEntity{
 	private List<LedgerEntryItem> items;
 	
 	public String getStringId() {
-		return LedgerEntryUtils.formatId(id);
+		return LedgeryEntryPk.formatId(id);
 	}
 		
 }

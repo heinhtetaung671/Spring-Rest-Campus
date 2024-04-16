@@ -14,4 +14,8 @@ public record ApiResponse<T>(ApiResponseStatus status, LocalDateTime responseTim
 		return new ApiResponse<T>(ApiResponseStatus.SECURITY_ERROR, LocalDateTime.now(), payload);
 	}
 	
+	public static <T> ApiResponse<T> success(T payload){
+		return new ApiResponse<T>(ApiResponseStatus.SUCCESS, LocalDateTime.now(), payload);
+	}
+	
 }
