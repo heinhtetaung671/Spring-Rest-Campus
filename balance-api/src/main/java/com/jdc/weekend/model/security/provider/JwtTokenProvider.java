@@ -1,23 +1,23 @@
 package com.jdc.weekend.model.security.provider;
 
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 import java.util.Map;
+import java.util.stream.Collectors;
 
 import javax.crypto.SecretKey;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.authentication.AnonymousAuthenticationToken;
-import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
-import org.springframework.security.core.AuthenticationException;
+import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.stereotype.Service;
 import org.springframework.util.StringUtils;
-
-import com.jdc.weekend.model.exception.InvalidTokenException;
 
 import io.jsonwebtoken.JwtException;
 import io.jsonwebtoken.Jwts;
@@ -37,10 +37,7 @@ public class JwtTokenProvider {
 
 	private SecretKey key;
 
-//	private static final String CLAIM_KEY_FOR_AUTHORITIES = "authorities";
-	private static final String CLAIM_KEY_FOR_PASSWORD = "password";
-
-	private final AuthenticationManager authenticationManager;
+	private static final String CLAIM_KEY_FOR_AUTHORITIES = "authorities";
 
 	@PostConstruct
 	public void init() {
@@ -52,41 +49,39 @@ public class JwtTokenProvider {
 	}
 
 	public String generate(Authentication authentication) {
-//		var authorities = authentication.getAuthorities().stream().map(a -> a.getAuthority())
-//				.collect(Collectors.joining(","));
+		var authorities = authentication.getAuthorities().stream().map(a -> a.getAuthority())
+				.collect(Collectors.joining(","));
 
 		var today = new Date();
 		var calender = Calendar.getInstance();
 		calender.setTime(today);
 		calender.add(Calendar.MINUTE, tokenLifeTime);
-		System.out.println(calender);
-		
+
 		return Jwts.builder().issuer(issuer).signWith(key).issuedAt(today).expiration(calender.getTime())
-				.subject(authentication.getName())
-				.claims(Map.of(CLAIM_KEY_FOR_PASSWORD, authentication.getCredentials().toString())).compact();
+				.subject(authentication.getName()).claims(Map.of(CLAIM_KEY_FOR_AUTHORITIES, authorities)).compact();
 	}
 
 	public Authentication parse(String token) {
 		if (StringUtils.hasLength(token)) {
 			try {
 				var jwt = Jwts.parser().requireIssuer(issuer).verifyWith(key).build().parseSignedClaims(token.trim());
-				var principle = jwt.getPayload().getSubject(); 
-				var credential = jwt.getPayload().get(CLAIM_KEY_FOR_PASSWORD, String.class);
-//				var authorities = Arrays.asList(jwt.getPayload().get(CLAIM_KEY_FOR_AUTHORITIES, String.class).split(","))
-//						.stream().map(SimpleGrantedAuthority::new).toList();
+				var principle = jwt.getPayload().getSubject();
+				var strAuthorities = jwt.getPayload().get(CLAIM_KEY_FOR_AUTHORITIES, String.class);
+				List<? extends GrantedAuthority> authorityList = strAuthorities == null ? new ArrayList<GrantedAuthority>()
+						: Arrays.asList(strAuthorities.split(",")).stream().map(SimpleGrantedAuthority::new).toList();
 
-				var authentication = authenticationManager
-						.authenticate(UsernamePasswordAuthenticationToken.unauthenticated(principle, credential));
-				((UsernamePasswordAuthenticationToken) authentication).eraseCredentials();
-				return authentication;
-			} catch (JwtException | AuthenticationException e) {
-				throw new InvalidTokenException();
+				return UsernamePasswordAuthenticationToken.authenticated(principle, null, authorityList);
+			} catch (JwtException e) {
+				return getAnonymousAuthenticationToken();
 			}
-
-		} else {
-			return new AnonymousAuthenticationToken("anonymousUser", "1",
-					List.of(new SimpleGrantedAuthority("Anonymous")));
 		}
+		return getAnonymousAuthenticationToken();
+	}
+
+	private Authentication getAnonymousAuthenticationToken() {
+		return new AnonymousAuthenticationToken("anonymousUser", "anonymousUser",
+				List.of(new SimpleGrantedAuthority("Anonymous")));
+
 	}
 
 }

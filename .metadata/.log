@@ -11649,3 +11649,269 @@ Binding(CTRL+SHIFT+T,
 
 !ENTRY org.eclipse.jdt.apt.pluggable.core 1 1 2024-04-16 22:37:52.731
 !MESSAGE Hibernate/JPA static Metamodel Generator 6.4.4.Final
+!SESSION 2024-04-16 23:09:09.051 -----------------------------------------------
+eclipse.buildId=4.30.0.20231201-1200
+java.version=17.0.9
+java.vendor=Eclipse Adoptium
+BootLoader constants: OS=linux, ARCH=x86_64, WS=gtk, NL=en_US
+Framework arguments:  -product org.eclipse.epp.package.jee.product
+Command-line arguments:  -os linux -ws gtk -arch x86_64 -product org.eclipse.epp.package.jee.product
+
+!ENTRY org.eclipse.emf.ecore 2 0 2024-04-16 23:09:12.737
+!MESSAGE Both 'org.eclipse.jst.j2ee.core' and 'org.eclipse.jst.j2ee.core' register a package for 'application.xmi'
+
+!ENTRY ch.qos.logback.classic 1 0 2024-04-16 23:09:12.915
+!MESSAGE Activated before the state location was initialized. Retry after the state location is initialized.
+
+!ENTRY ch.qos.logback.classic 1 0 2024-04-16 23:09:16.471
+!MESSAGE Logback config file: /home/heinhtetaung/myData/workspaces/spring-rest/.metadata/.plugins/org.eclipse.m2e.logback/logback.2.2.1.20231030-1438.xml
+
+!ENTRY org.eclipse.ui 2 0 2024-04-16 23:09:16.875
+!MESSAGE Warnings while parsing the commands from the 'org.eclipse.ui.commands' and 'org.eclipse.ui.actionDefinitions' extension points.
+!SUBENTRY 1 org.eclipse.ui 2 0 2024-04-16 23:09:16.875
+!MESSAGE Commands should really have a category: plug-in='org.springframework.tooling.boot.ls', id='spring.initializr.addStarters', categoryId='org.eclipse.lsp4e.commandCategory'
+
+!ENTRY org.eclipse.ui 2 0 2024-04-16 23:09:17.216
+!MESSAGE Warnings while parsing the commands from the 'org.eclipse.ui.commands' and 'org.eclipse.ui.actionDefinitions' extension points.
+!SUBENTRY 1 org.eclipse.ui 2 0 2024-04-16 23:09:17.216
+!MESSAGE Commands should really have a category: plug-in='org.springframework.tooling.boot.ls', id='spring.initializr.addStarters', categoryId='org.eclipse.lsp4e.commandCategory'
+
+!ENTRY org.eclipse.jface 2 0 2024-04-16 23:09:18.263
+!MESSAGE Keybinding conflicts occurred.  They may interfere with normal accelerator operation.
+!SUBENTRY 1 org.eclipse.jface 2 0 2024-04-16 23:09:18.263
+!MESSAGE A conflict occurred for CTRL+SHIFT+T:
+Binding(CTRL+SHIFT+T,
+	ParameterizedCommand(Command(org.eclipse.jdt.ui.navigate.open.type,Open Type,
+		Open a type in a Java editor,
+		Category(org.eclipse.ui.category.navigate,Navigate,null,true),
+		WorkbenchHandlerServiceHandler("org.eclipse.jdt.ui.navigate.open.type"),
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+Binding(CTRL+SHIFT+T,
+	ParameterizedCommand(Command(org.eclipse.lsp4e.symbolinworkspace,Go to Symbol in Workspace,
+		,
+		Category(org.eclipse.lsp4e.category,Language Servers,null,true),
+		WorkbenchHandlerServiceHandler("org.eclipse.lsp4e.symbolinworkspace"),
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2024-04-16 23:09:21.300
+!MESSAGE Command list starting LS: org.springframework.tooling.boot.ls
+START:
+/home/heinhtetaung/myData/downloads/eclipse-2023-12/eclipse/plugins/org.eclipse.justj.openjdk.hotspot.jre.full.linux.x86_64_17.0.9.v20231028-0858/jre/bin/java
+-cp
+/home/heinhtetaung/myData/downloads/eclipse-2023-12/eclipse/plugins/org.springframework.tooling.boot.ls_1.53.0.202403071323/servers/spring-boot-language-server/BOOT-INF/classes:/home/heinhtetaung/myData/downloads/eclipse-2023-12/eclipse/plugins/org.springframework.tooling.boot.ls_1.53.0.202403071323/servers/spring-boot-language-server/BOOT-INF/lib/*
+-Dsts.lsp.client=eclipse
+-Dlsp.completions.indentation.enable=true
+-Xmx1024m
+-XX:+HeapDumpOnOutOfMemoryError
+-XX:TieredStopAtLevel=1
+-Xlog:jni+resolve=off
+-Dspring.config.location=file:/home/heinhtetaung/myData/downloads/eclipse-2023-12/eclipse/plugins/org.springframework.tooling.boot.ls_1.53.0.202403071323/servers/spring-boot-language-server/BOOT-INF/classes/application.properties
+-XX:ErrorFile=/home/heinhtetaung/myData/workspaces/spring-rest/.metadata/.plugins/org.springframework.tooling.boot.ls/fatal-error-spring-boot_1713285561300
+org.springframework.ide.vscode.boot.app.BootLanguageServerBootApp
+--languageserver.hover-timeout=225
+END
+
+!ENTRY org.springframework.tooling.boot.ls 1 0 2024-04-16 23:09:21.301
+!MESSAGE DelegatingStreamConnectionProvider - Starting Boot LS
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2024-04-16 23:09:21.313
+!MESSAGE Started org.springframework.tooling.boot.ls LS process 21522
+
+!ENTRY org.springframework.tooling.boot.ls 1 0 2024-04-16 23:09:21.812
+!MESSAGE Boot project ADDED: balance-api
+
+!ENTRY org.springframework.tooling.boot.ls 1 0 2024-04-16 23:09:21.812
+!MESSAGE Starting Boot LS...
+
+!ENTRY org.springframework.tooling.boot.ls 1 0 2024-04-16 23:09:21.814
+!MESSAGE Started Boot LS process
+
+!ENTRY org.springframework.tooling.boot.ls 1 0 2024-04-16 23:09:21.828
+!MESSAGE Boot project ADDED: employee-api
+
+!ENTRY org.springframework.tooling.boot.ls 1 0 2024-04-16 23:09:21.837
+!MESSAGE Boot project ADDED: rest-security
+
+!ENTRY org.eclipse.jdt.apt.pluggable.core 1 1 2024-04-16 23:12:46.498
+!MESSAGE Hibernate/JPA static Metamodel Generator 6.4.4.Final
+
+!ENTRY org.eclipse.lsp4e 2 0 2024-04-16 23:12:47.086
+!MESSAGE Javadoc unavailable. Failed to obtain it.
+!STACK 0
+java.lang.InterruptedException
+	at java.base/java.util.concurrent.CompletableFuture.reportGet(CompletableFuture.java:386)
+	at java.base/java.util.concurrent.CompletableFuture.get(CompletableFuture.java:2096)
+	at org.eclipse.lsp4e.jdt.LSJavaHoverProvider.getHoverInfo2(LSJavaHoverProvider.java:65)
+	at org.eclipse.jdt.internal.ui.text.java.hover.BestMatchHover.getHoverInfo2(BestMatchHover.java:163)
+	at org.eclipse.jdt.internal.ui.text.java.hover.BestMatchHover.getHoverInfo2(BestMatchHover.java:130)
+	at org.eclipse.jdt.internal.ui.text.java.hover.JavaEditorTextHoverProxy.getHoverInfo2(JavaEditorTextHoverProxy.java:89)
+	at org.eclipse.jface.text.TextViewerHoverManager$1.run(TextViewerHoverManager.java:155)
+
+!ENTRY org.eclipse.jdt.apt.pluggable.core 1 1 2024-04-16 23:15:02.102
+!MESSAGE Hibernate/JPA static Metamodel Generator 6.4.4.Final
+
+!ENTRY org.eclipse.jdt.apt.pluggable.core 1 1 2024-04-16 23:16:15.959
+!MESSAGE Hibernate/JPA static Metamodel Generator 6.4.4.Final
+
+!ENTRY org.eclipse.jdt.apt.pluggable.core 1 1 2024-04-16 23:16:26.382
+!MESSAGE Hibernate/JPA static Metamodel Generator 6.4.4.Final
+
+!ENTRY org.eclipse.jdt.apt.pluggable.core 1 1 2024-04-16 23:16:31.771
+!MESSAGE Hibernate/JPA static Metamodel Generator 6.4.4.Final
+
+!ENTRY org.eclipse.jdt.apt.pluggable.core 1 1 2024-04-16 23:17:02.949
+!MESSAGE Hibernate/JPA static Metamodel Generator 6.4.4.Final
+
+!ENTRY org.eclipse.jdt.apt.pluggable.core 1 1 2024-04-16 23:17:04.035
+!MESSAGE Hibernate/JPA static Metamodel Generator 6.4.4.Final
+
+!ENTRY org.eclipse.jdt.apt.pluggable.core 1 1 2024-04-16 23:17:09.286
+!MESSAGE Hibernate/JPA static Metamodel Generator 6.4.4.Final
+
+!ENTRY org.eclipse.jdt.apt.pluggable.core 1 1 2024-04-16 23:17:27.874
+!MESSAGE Hibernate/JPA static Metamodel Generator 6.4.4.Final
+
+!ENTRY org.eclipse.jdt.apt.pluggable.core 1 1 2024-04-16 23:17:48.224
+!MESSAGE Hibernate/JPA static Metamodel Generator 6.4.4.Final
+
+!ENTRY org.eclipse.jdt.apt.pluggable.core 1 1 2024-04-16 23:18:08.285
+!MESSAGE Hibernate/JPA static Metamodel Generator 6.4.4.Final
+
+!ENTRY org.eclipse.jdt.apt.pluggable.core 1 1 2024-04-16 23:18:33.629
+!MESSAGE Hibernate/JPA static Metamodel Generator 6.4.4.Final
+
+!ENTRY org.eclipse.jdt.apt.pluggable.core 1 1 2024-04-16 23:18:37.135
+!MESSAGE Hibernate/JPA static Metamodel Generator 6.4.4.Final
+
+!ENTRY org.eclipse.jdt.apt.pluggable.core 1 1 2024-04-16 23:18:52.954
+!MESSAGE Hibernate/JPA static Metamodel Generator 6.4.4.Final
+
+!ENTRY org.eclipse.jdt.apt.pluggable.core 1 1 2024-04-16 23:19:39.730
+!MESSAGE Hibernate/JPA static Metamodel Generator 6.4.4.Final
+
+!ENTRY org.eclipse.jdt.apt.pluggable.core 1 1 2024-04-16 23:20:22.015
+!MESSAGE Hibernate/JPA static Metamodel Generator 6.4.4.Final
+
+!ENTRY org.eclipse.jdt.apt.pluggable.core 1 1 2024-04-16 23:20:41.745
+!MESSAGE Hibernate/JPA static Metamodel Generator 6.4.4.Final
+
+!ENTRY org.eclipse.jdt.apt.pluggable.core 1 1 2024-04-16 23:22:40.366
+!MESSAGE Hibernate/JPA static Metamodel Generator 6.4.4.Final
+
+!ENTRY org.eclipse.jdt.apt.pluggable.core 1 1 2024-04-16 23:23:21.557
+!MESSAGE Hibernate/JPA static Metamodel Generator 6.4.4.Final
+
+!ENTRY org.eclipse.jdt.apt.pluggable.core 1 1 2024-04-16 23:24:59.645
+!MESSAGE Hibernate/JPA static Metamodel Generator 6.4.4.Final
+
+!ENTRY org.eclipse.jdt.apt.pluggable.core 1 1 2024-04-16 23:25:19.284
+!MESSAGE Hibernate/JPA static Metamodel Generator 6.4.4.Final
+
+!ENTRY org.eclipse.jdt.apt.pluggable.core 1 1 2024-04-16 23:25:25.801
+!MESSAGE Hibernate/JPA static Metamodel Generator 6.4.4.Final
+
+!ENTRY org.eclipse.jdt.apt.pluggable.core 1 1 2024-04-16 23:26:15.817
+!MESSAGE Hibernate/JPA static Metamodel Generator 6.4.4.Final
+
+!ENTRY org.eclipse.jdt.apt.pluggable.core 1 1 2024-04-16 23:26:25.380
+!MESSAGE Hibernate/JPA static Metamodel Generator 6.4.4.Final
+
+!ENTRY org.eclipse.jdt.apt.pluggable.core 1 1 2024-04-16 23:27:31.335
+!MESSAGE Hibernate/JPA static Metamodel Generator 6.4.4.Final
+
+!ENTRY org.eclipse.jdt.apt.pluggable.core 1 1 2024-04-16 23:27:33.917
+!MESSAGE Hibernate/JPA static Metamodel Generator 6.4.4.Final
+
+!ENTRY org.eclipse.jdt.apt.pluggable.core 1 1 2024-04-16 23:27:40.983
+!MESSAGE Hibernate/JPA static Metamodel Generator 6.4.4.Final
+
+!ENTRY org.eclipse.jdt.apt.pluggable.core 1 1 2024-04-16 23:27:46.008
+!MESSAGE Hibernate/JPA static Metamodel Generator 6.4.4.Final
+
+!ENTRY org.eclipse.jdt.apt.pluggable.core 1 1 2024-04-16 23:27:48.523
+!MESSAGE Hibernate/JPA static Metamodel Generator 6.4.4.Final
+
+!ENTRY org.eclipse.jdt.apt.pluggable.core 1 1 2024-04-16 23:27:49.558
+!MESSAGE Hibernate/JPA static Metamodel Generator 6.4.4.Final
+
+!ENTRY org.eclipse.jdt.apt.pluggable.core 1 1 2024-04-16 23:27:56.274
+!MESSAGE Hibernate/JPA static Metamodel Generator 6.4.4.Final
+
+!ENTRY org.eclipse.jdt.apt.pluggable.core 1 1 2024-04-16 23:29:27.560
+!MESSAGE Hibernate/JPA static Metamodel Generator 6.4.4.Final
+
+!ENTRY org.eclipse.debug.core 4 125 2024-04-16 23:29:30.017
+!MESSAGE Error logged from Debug Core: 
+!STACK 0
+java.io.IOException: Stream closed
+	at java.base/java.io.BufferedInputStream.getBufIfOpen(BufferedInputStream.java:168)
+	at java.base/java.io.BufferedInputStream.read1(BufferedInputStream.java:281)
+	at java.base/java.io.BufferedInputStream.read(BufferedInputStream.java:343)
+	at java.base/java.io.FilterInputStream.read(FilterInputStream.java:106)
+	at org.eclipse.debug.internal.core.OutputStreamMonitor.internalRead(OutputStreamMonitor.java:249)
+	at org.eclipse.debug.internal.core.OutputStreamMonitor.read(OutputStreamMonitor.java:225)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+
+!ENTRY org.eclipse.jdt.apt.pluggable.core 1 1 2024-04-16 23:30:38.057
+!MESSAGE Hibernate/JPA static Metamodel Generator 6.4.4.Final
+
+!ENTRY org.eclipse.jdt.apt.pluggable.core 1 1 2024-04-16 23:30:39.266
+!MESSAGE Hibernate/JPA static Metamodel Generator 6.4.4.Final
+
+!ENTRY org.eclipse.jface 2 0 2024-04-16 23:31:13.218
+!MESSAGE Keybinding conflicts occurred.  They may interfere with normal accelerator operation.
+!SUBENTRY 1 org.eclipse.jface 2 0 2024-04-16 23:31:13.218
+!MESSAGE A conflict occurred for CTRL+R:
+Binding(CTRL+R,
+	ParameterizedCommand(Command(org.eclipse.debug.ui.commands.RunToLine,Run to Line,
+		Resume and break when execution reaches the current line,
+		Category(org.eclipse.debug.ui.category.run,Run/Debug,Run/Debug command category,true),
+		WorkbenchHandlerServiceHandler("org.eclipse.debug.ui.commands.RunToLine"),
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.debug.ui.debugging,,,system)
+Binding(CTRL+R,
+	ParameterizedCommand(Command(org.springframework.ide.eclipse.boot.restart.commands.restart,Trigger Restart,
+		Restart Spring Boot Application,
+		Category(org.eclipse.debug.ui.category.run,Run/Debug,Run/Debug command category,true),
+		WorkbenchHandlerServiceHandler("org.springframework.ide.eclipse.boot.restart.commands.restart"),
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.debug.ui.console,,,system)
+
+!ENTRY org.eclipse.lsp4e 2 0 2024-04-16 23:42:45.987
+!MESSAGE Javadoc unavailable. Failed to obtain it.
+!STACK 0
+java.lang.InterruptedException
+	at java.base/java.util.concurrent.CompletableFuture.reportGet(CompletableFuture.java:386)
+	at java.base/java.util.concurrent.CompletableFuture.get(CompletableFuture.java:2096)
+	at org.eclipse.lsp4e.jdt.LSJavaHoverProvider.getHoverInfo2(LSJavaHoverProvider.java:65)
+	at org.eclipse.jdt.internal.ui.text.java.hover.BestMatchHover.getHoverInfo2(BestMatchHover.java:163)
+	at org.eclipse.jdt.internal.ui.text.java.hover.BestMatchHover.getHoverInfo2(BestMatchHover.java:130)
+	at org.eclipse.jdt.internal.ui.text.java.hover.JavaEditorTextHoverProxy.getHoverInfo2(JavaEditorTextHoverProxy.java:89)
+	at org.eclipse.jface.text.TextViewerHoverManager$1.run(TextViewerHoverManager.java:155)
+
+!ENTRY org.eclipse.jdt.apt.pluggable.core 1 1 2024-04-16 23:43:52.307
+!MESSAGE Hibernate/JPA static Metamodel Generator 6.4.4.Final
+
+!ENTRY org.eclipse.jdt.apt.pluggable.core 1 1 2024-04-16 23:44:28.324
+!MESSAGE Hibernate/JPA static Metamodel Generator 6.4.4.Final
+
+!ENTRY org.eclipse.jdt.apt.pluggable.core 1 1 2024-04-16 23:44:42.506
+!MESSAGE Hibernate/JPA static Metamodel Generator 6.4.4.Final
+
+!ENTRY org.eclipse.jdt.apt.pluggable.core 1 1 2024-04-16 23:45:03.363
+!MESSAGE Hibernate/JPA static Metamodel Generator 6.4.4.Final
+
+!ENTRY org.eclipse.jdt.apt.pluggable.core 1 1 2024-04-16 23:45:30.393
+!MESSAGE Hibernate/JPA static Metamodel Generator 6.4.4.Final
+
+!ENTRY org.eclipse.jdt.apt.pluggable.core 1 1 2024-04-16 23:45:37.828
+!MESSAGE Hibernate/JPA static Metamodel Generator 6.4.4.Final
+
+!ENTRY org.eclipse.jdt.apt.pluggable.core 1 1 2024-04-16 23:47:12.282
+!MESSAGE Hibernate/JPA static Metamodel Generator 6.4.4.Final
