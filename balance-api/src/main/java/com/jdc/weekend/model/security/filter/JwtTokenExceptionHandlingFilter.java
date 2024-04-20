@@ -2,8 +2,8 @@ package com.jdc.weekend.model.security.filter;
 
 import java.io.IOException;
 
-import org.apache.catalina.connector.Response;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.web.filter.OncePerRequestFilter;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -29,7 +29,7 @@ public class JwtTokenExceptionHandlingFilter extends OncePerRequestFilter {
 			filterChain.doFilter(request, response);
 		} catch (InvalidTokenException e) {
 			if (!response.isCommitted()) {
-				response.setStatus(Response.SC_FORBIDDEN);
+				response.setStatus(HttpStatus.FORBIDDEN.value());
 				
 				var writer = response.getWriter();
 				writer.write(objectMapper.writeValueAsString(ApiResponse.securityError(e.getMessage())));

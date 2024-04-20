@@ -4,7 +4,7 @@ import java.math.BigDecimal;
 
 import com.jdc.weekend.model.entity.LedgerEntryItem;
 
-public record LedgerEntryInfoItem(String item, int quantity, BigDecimal unitPrice) {
+public record LedgerEntryInfoItem(String name, int quantity, BigDecimal unitPrice) {
 
 	public BigDecimal getTotal() {
 		return unitPrice().multiply(new BigDecimal(quantity));

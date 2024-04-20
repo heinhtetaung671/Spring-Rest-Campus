@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
     <fullyQualifiedTypeName name="lombok.EqualsAndHashCode"/>
-    <fullyQualifiedTypeName name="com.jdc.weekend.api.output.ApiResponse"/>
     <fullyQualifiedTypeName name="org.springframework.security.authentication.UsernamePasswordAuthenticationToken"/>
     <fullyQualifiedTypeName name="java.util.Arrays"/>
     <fullyQualifiedTypeName name="org.springframework.security.web.AuthenticationEntryPoint"/>
@@ -9,7 +8,6 @@
     <fullyQualifiedTypeName name="com.jdc.weekend.model.annotation.Utils"/>
     <fullyQualifiedTypeName name="com.jdc.weekend.model.security.costomize.CustomAuthenticationEntryPoint"/>
     <fullyQualifiedTypeName name="com.jdc.weekend.model.security.filter.JwtTokenExceptionHandlingFilter"/>
-    <fullyQualifiedTypeName name="org.springframework.security.web.access.ExceptionTranslationFilter"/>
     <fullyQualifiedTypeName name="org.springframework.security.core.Authentication"/>
     <fullyQualifiedTypeName name="org.springframework.security.authorization.AuthorizationManager"/>
     <fullyQualifiedTypeName name="org.springframework.security.web.access.intercept.AuthorizationFilter"/>
@@ -39,7 +37,6 @@
     <fullyQualifiedTypeName name="java.util.List"/>
     <fullyQualifiedTypeName name="java.lang.StringBuffer"/>
     <fullyQualifiedTypeName name="org.springframework.util.StringUtils"/>
-    <fullyQualifiedTypeName name="org.springframework.stereotype.Component"/>
     <fullyQualifiedTypeName name="jakarta.validation.Valid"/>
     <fullyQualifiedTypeName name="com.jdc.weekend.api.validator.EmployeeItemValidator"/>
     <fullyQualifiedTypeName name="org.springframework.boot.autoconfigure.AutoConfigureOrder"/>
@@ -47,4 +44,12 @@
     <fullyQualifiedTypeName name="com.jdc.weekend.api.input.LedgerEntryFormItem"/>
     <fullyQualifiedTypeName name="jakarta.validation.constraints.NotNull"/>
     <fullyQualifiedTypeName name="jakarta.validation.constraints.Min"/>
+    <fullyQualifiedTypeName name="org.springframework.security.web.access.ExceptionTranslationFilter"/>
+    <fullyQualifiedTypeName name="com.fasterxml.jackson.databind.ObjectMapper"/>
+    <fullyQualifiedTypeName name="org.springframework.stereotype.Component"/>
+    <fullyQualifiedTypeName name="lombok.RequiredArgsConstructor"/>
+    <fullyQualifiedTypeName name="com.jdc.weekend.api.output.ApiResponse"/>
+    <fullyQualifiedTypeName name="org.springframework.security.web.access.AccessDeniedHandler"/>
+    <fullyQualifiedTypeName name="com.jdc.weekend.model.security.costomize.CustomAccessDeniedHandler"/>
+    <fullyQualifiedTypeName name="org.springframework.http.HttpStatus"/>
 </qualifiedTypeNameHistroy>

@@ -17,20 +17,20 @@ public class EmployeeItemValidator implements Validator {
 
 	@Override
 	public void validate(Object target, Errors errors) {
-		if (target instanceof LedgerEntryForm form) {
+		if (target instanceof LedgerEntryForm(var issueDate, var categoryId, var remark, var items)) {
 			
-			if(form.issueDate() == null) {
+			if(issueDate == null) {
 				errors.rejectValue("issueDate", "issueDate", "Please select issueDate");
 			}
 			
-			if(form.categoryId() <= 0 ) {
+			if(categoryId <= 0 ) {
 				errors.rejectValue("categoryId", "categoryId", "Please select category.");
 			}
 			
-			for (int i = 0; i < form.items().size(); i++) {
+			for (int i = 0; i < items.size(); i++) {
 				var buffer = new StringBuffer("");
 				
-				var item = form.items().get(i);
+				var item = items.get(i);
 				boolean hasError = false;
 				if (!StringUtils.hasLength(item.name())) {
 					buffer.append("Please enter name. ");
