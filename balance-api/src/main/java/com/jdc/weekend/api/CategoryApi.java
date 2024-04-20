@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.validation.BindingResult;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -18,6 +19,7 @@ import com.jdc.weekend.api.input.CategorySearch;
 import com.jdc.weekend.api.output.ApiResponse;
 import com.jdc.weekend.api.output.CategoryForSelectBox;
 import com.jdc.weekend.api.output.CategoryInfo;
+import com.jdc.weekend.model.constant.BalanceType;
 import com.jdc.weekend.model.service.CategoryService;
 
 @RestController
@@ -38,7 +40,7 @@ public class CategoryApi {
 	}
 	
 	@PostMapping
-	ApiResponse<CategoryInfo> create(@RequestBody CategoryForm form, BindingResult result) {
+	ApiResponse<CategoryInfo> create(@RequestBody @Validated CategoryForm form, BindingResult result) {
 		return ApiResponse.success(service.create(form));
 	}
 	
@@ -48,13 +50,13 @@ public class CategoryApi {
 	}
 	
 	@PutMapping("{id}")
-	ApiResponse<CategoryInfo> update(@PathVariable int id, CategoryForm form) {
+	ApiResponse<CategoryInfo> update(@PathVariable int id,@RequestBody  @Validated CategoryForm form, BindingResult result) {
 		return ApiResponse.success(service.update(id, form));
 	}
 	
-	@GetMapping("for-select-box")
-	ApiResponse<List<CategoryForSelectBox>> loadAllForSelectBox(){
-		return ApiResponse.success(service.loadAllForSelectBox());
+	@GetMapping("{type}/for-select-box")
+	ApiResponse<List<CategoryForSelectBox>> loadAllForSelectBox(@PathVariable BalanceType type){
+		return ApiResponse.success(service.loadAllForSelectBox(type));
 	}
 	
 }

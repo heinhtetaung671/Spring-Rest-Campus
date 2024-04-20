@@ -21,8 +21,10 @@ public class ApiInputValidationAspect {
 	@Before(value = "apiMethods() && args(..,result)", argNames = "result")
 	public void validateApiMethod(BindingResult result) {
 		if (result.hasErrors()) {
-			throw new ValidationException(result.getFieldErrors().stream()
-					.collect(Collectors.toMap(f -> f.getField(), f -> f.getDefaultMessage())));
+			throw new ValidationException(
+					result.getFieldErrors().stream().collect(Collectors.groupingBy(fe -> fe.getField())).entrySet()
+							.stream().collect(Collectors.toMap(entry -> entry.getKey(),
+									entry -> entry.getValue().stream().map(f -> f.getDefaultMessage()).toList())));
 		}
 	}
 

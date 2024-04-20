@@ -20,6 +20,8 @@ import com.jdc.weekend.api.output.LedgerEntryDetails;
 import com.jdc.weekend.api.output.LedgerEntryInfo;
 import com.jdc.weekend.model.service.LedgerEntryService;
 
+import jakarta.validation.Valid;
+
 @RestController
 @RequestMapping("ledger")
 public class LedgetEntryApi {
@@ -30,7 +32,7 @@ public class LedgetEntryApi {
 	@GetMapping
 	ApiResponse<Page<LedgerEntryInfo>> search(LedgerEntrySearch search,
 			@RequestParam(required = false, defaultValue = "0") int page,
-			@RequestParam(required = false, defaultValue = "1") int size) {
+			@RequestParam(required = false, defaultValue = "10") int size) {
 		return ApiResponse.success(service.search(search, page, size));
 	}
 	
@@ -39,8 +41,8 @@ public class LedgetEntryApi {
 		return ApiResponse.success(service.create(form));
 	}
 	
-	@PutMapping
-	ApiResponse<LedgerEntryInfo> update(@PathVariable String id, @RequestBody @Validated LedgerEntryForm form, BindingResult result) {
+	@PutMapping("{id}")
+	ApiResponse<LedgerEntryInfo> update(@PathVariable String id, @RequestBody @Validated @Valid LedgerEntryForm form, BindingResult result) {
 		return ApiResponse.success(service.update(id, form));
 	}
 	

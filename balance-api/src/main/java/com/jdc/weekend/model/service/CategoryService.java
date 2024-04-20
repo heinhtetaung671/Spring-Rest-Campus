@@ -13,6 +13,7 @@ import com.jdc.weekend.api.input.CategoryForm;
 import com.jdc.weekend.api.input.CategorySearch;
 import com.jdc.weekend.api.output.CategoryForSelectBox;
 import com.jdc.weekend.api.output.CategoryInfo;
+import com.jdc.weekend.model.constant.BalanceType;
 import com.jdc.weekend.model.constant.DomainNamesForExceptionMsg;
 import com.jdc.weekend.model.entity.Category;
 import com.jdc.weekend.model.entity.Category_;
@@ -67,11 +68,12 @@ public class CategoryService {
 		};
 	}
 
-	public List<CategoryForSelectBox> loadAllForSelectBox() {
+	public List<CategoryForSelectBox> loadAllForSelectBox(BalanceType type) {
 		Function<CriteriaBuilder, CriteriaQuery<CategoryForSelectBox>> queryFunc = cb -> {
 			var cq = cb.createQuery(CategoryForSelectBox.class);
 			var root = cq.from(Category.class);
 			cq.multiselect(root.get(Category_.id), root.get(Category_.name));
+			cq.where(cb.equal(root.get(Category_.type), type));
 			cq.orderBy(cb.asc(root.get(Category_.name)));
 			return cq;
 		};

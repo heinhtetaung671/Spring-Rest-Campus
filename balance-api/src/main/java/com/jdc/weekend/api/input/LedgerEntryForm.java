@@ -5,7 +5,14 @@ import java.util.List;
 
 import com.jdc.weekend.model.entity.LedgerEntry;
 
-public record LedgerEntryForm(LocalDate issueDate, int categoryId, String remark, List<LedgerEntryFormItem> items) {
+import jakarta.validation.constraints.Min;
+import jakarta.validation.constraints.NotNull;
+
+public record LedgerEntryForm(
+		@NotNull(message = "Please enter issueDate.")
+		LocalDate issueDate,
+		@Min(value = 1, message = "Please select category.")
+		int categoryId, String remark, List<LedgerEntryFormItem> items) {
 
 	public static LedgerEntryForm from(LedgerEntry entity) {
 		return new LedgerEntryForm(entity.getId().getIssueDate(), entity.getCategory().getId(), entity.getRemark(),

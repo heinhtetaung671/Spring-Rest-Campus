@@ -34,7 +34,7 @@ public class BalanceApiSecurityConfig {
 		http.authorizeHttpRequests(req -> {
 			req.requestMatchers(new AntPathRequestMatcher("/login", "POST")).permitAll();
 			req.requestMatchers("/employee/**").permitAll();
-			req.requestMatchers( "/ledger/**", "/category/**").hasAnyAuthority("Admin");
+			req.requestMatchers( "/ledger/**", "/category/**", "/category-edit", "/ledger-edit", "/employee-edit").hasAnyAuthority("Admin");
 			req.requestMatchers("/report").hasAnyAuthority("Admin");
 			req.anyRequest().authenticated();
 		});

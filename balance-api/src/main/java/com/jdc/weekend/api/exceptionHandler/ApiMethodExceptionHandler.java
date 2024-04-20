@@ -1,5 +1,6 @@
 package com.jdc.weekend.api.exceptionHandler;
 
+import java.util.List;
 import java.util.Map;
 
 import org.springframework.http.HttpStatus;
@@ -15,7 +16,7 @@ public class ApiMethodExceptionHandler {
 
 	@ExceptionHandler
 	@ResponseStatus(code = HttpStatus.BAD_REQUEST)
-	ApiResponse<Map<String, String>> handleValidationException(ValidationException e){
+	ApiResponse<Map<String, List<String>>> handleValidationException(ValidationException e){
 		return ApiResponse.validationError(e.getFieldErrorMap());
 	}
 	

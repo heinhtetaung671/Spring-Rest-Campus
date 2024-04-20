@@ -48,10 +48,10 @@ public class LedgerEntryService {
 
 	@Transactional
 	public LedgerEntryInfo update(String id, LedgerEntryForm form) {
-		var entity = Common.getOne(repo.findById(LedgeryEntryPk.parse(id)),
+		var entity = getOne(repo.findById(LedgeryEntryPk.parse(id)),
 				DomainNamesForExceptionMsg.LEDGER_ENTRY, id);
 
-		entity.setCategory(Common.getOne(categoryRepo.findById(form.categoryId()), DomainNamesForExceptionMsg.CATEGORY,
+		entity.setCategory(getOne(categoryRepo.findById(form.categoryId()), DomainNamesForExceptionMsg.CATEGORY,
 				form.categoryId()));
 		entity.setItems(form.items().stream().map(LedgerEntryFormItem::toEntity).toList());
 		entity.setRemark(form.remark());

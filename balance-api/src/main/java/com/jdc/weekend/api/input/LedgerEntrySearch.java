@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import org.springframework.util.StringUtils;
 
 import com.jdc.weekend.model.constant.BalanceType;
+import com.jdc.weekend.model.entity.Category_;
 import com.jdc.weekend.model.entity.LedgerEntry;
 import com.jdc.weekend.model.entity.LedgerEntry_;
 import com.jdc.weekend.model.entity.LedgeryEntryPk_;
@@ -20,7 +21,7 @@ public record LedgerEntrySearch(BalanceType type, LocalDate from, LocalDate to, 
 		var list = new ArrayList<Predicate>();
 		
 		if(null != type) {
-			list.add(cb.equal(root.get(LedgerEntry_.category).type(), type));
+			list.add(cb.equal(root.get(LedgerEntry_.category).get(Category_.type), type));
 		}
 		
 		if(null != from && null != to) {

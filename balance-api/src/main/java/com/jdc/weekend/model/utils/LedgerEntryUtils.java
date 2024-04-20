@@ -10,7 +10,6 @@ import org.springframework.transaction.annotation.Transactional;
 import com.jdc.weekend.api.input.LedgerEntryForm;
 import com.jdc.weekend.api.input.LedgerEntryFormItem;
 import com.jdc.weekend.model.annotation.Utils;
-import com.jdc.weekend.model.common.Common;
 import com.jdc.weekend.model.constant.DomainNamesForExceptionMsg;
 import com.jdc.weekend.model.entity.LedgerEntry;
 import com.jdc.weekend.model.entity.LedgeryEntryPk;
@@ -40,7 +39,7 @@ public class LedgerEntryUtils {
 
 		entity.setId(id);
 		entity.setIssueAt(LocalDate.now());
-		entity.setCategory(Common.getOne(categoryRepo.findById(form.categoryId()), DomainNamesForExceptionMsg.CATEGORY,
+		entity.setCategory(getOne(categoryRepo.findById(form.categoryId()), DomainNamesForExceptionMsg.CATEGORY,
 				form.categoryId()));
 		entity.setRemark(form.remark());
 		entity.setItems(form.items().stream().map(LedgerEntryFormItem::toEntity).toList());
