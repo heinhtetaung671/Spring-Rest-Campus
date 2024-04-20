@@ -17,6 +17,7 @@ import org.springframework.security.web.access.ExceptionTranslationFilter;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 
+import com.jdc.weekend.model.security.costomize.CustomAccessDeniedHandler;
 import com.jdc.weekend.model.security.costomize.CustomAuthenticationEntryPoint;
 import com.jdc.weekend.model.security.filter.JwtTokenExceptionHandlingFilter;
 import com.jdc.weekend.model.security.filter.JwtTokenFilter;
@@ -27,24 +28,30 @@ public class BalanceApiSecurityConfig {
 
 	@Bean
 	SecurityFilterChain filterChain(HttpSecurity http, JwtTokenFilter jwtTokenFilter,
-			JwtTokenExceptionHandlingFilter jwtTokenExceptionHandlingFilter, CustomAuthenticationEntryPoint customAuthenticationEntryPoint) throws Exception {
+			JwtTokenExceptionHandlingFilter jwtTokenExceptionHandlingFilter, CustomAuthenticationEntryPoint customAuthenticationEntryPoint, 
+			CustomAccessDeniedHandler customAccessDeniedHandler
+			) throws Exception {
 		http.csrf(csrf -> csrf.disable());
 		http.sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS));
 
 		http.authorizeHttpRequests(req -> {
 			req.requestMatchers(new AntPathRequestMatcher("/login", "POST")).permitAll();
 			req.requestMatchers("/employee/**").permitAll();
-			req.requestMatchers( "/ledger/**", "/category/**", "/category-edit", "/ledger-edit", "/employee-edit").hasAnyAuthority("Admin");
+			req.requestMatchers( "/ledger/**", "/category/**", "/category-edit", "/ledger-edit", "/employee-edit").hasAnyAuthority("Employee");
 			req.requestMatchers("/report").hasAnyAuthority("Admin");
 			req.anyRequest().authenticated();
 		});
 
-		http.exceptionHandling(e -> e.authenticationEntryPoint(customAuthenticationEntryPoint));
+		http.exceptionHandling(e -> { 
+				e.authenticationEntryPoint(customAuthenticationEntryPoint);
+				e.accessDeniedHandler(customAccessDeniedHandler);
+			});
+		
 		http.addFilterBefore(jwtTokenFilter, UsernamePasswordAuthenticationFilter.class);
 		http.addFilterBefore(jwtTokenExceptionHandlingFilter, ExceptionTranslationFilter.class);
 		return http.build();
 	}
-	
+
 	@Bean
 	AuthenticationProvider provider(PasswordEncoder passwordEncoder, UserDetailsService userDetailsService) {
 		var provider = new DaoAuthenticationProvider(passwordEncoder);

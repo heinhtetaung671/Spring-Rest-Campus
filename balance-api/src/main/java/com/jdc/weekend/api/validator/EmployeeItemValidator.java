@@ -19,10 +19,14 @@ public class EmployeeItemValidator implements Validator {
 	public void validate(Object target, Errors errors) {
 		if (target instanceof LedgerEntryForm form) {
 			
+			if(form.issueDate() == null) {
+				errors.rejectValue("issueDate", "issueDate", "Please select issueDate");
+			}
+			
 			if(form.categoryId() <= 0 ) {
 				errors.rejectValue("categoryId", "categoryId", "Please select category.");
 			}
-
+			
 			for (int i = 0; i < form.items().size(); i++) {
 				var buffer = new StringBuffer("");
 				
@@ -44,7 +48,7 @@ public class EmployeeItemValidator implements Validator {
 				}
 
 				if (hasError) {
-					buffer.append("At Row = ");
+					buffer.append("at row = ");
 					buffer.append(i + 1);
 					errors.rejectValue("items", "items", buffer.toString());
 				}

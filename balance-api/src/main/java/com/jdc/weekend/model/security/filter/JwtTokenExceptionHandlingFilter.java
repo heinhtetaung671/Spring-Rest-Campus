@@ -30,8 +30,8 @@ public class JwtTokenExceptionHandlingFilter extends OncePerRequestFilter {
 		} catch (InvalidTokenException e) {
 			if (!response.isCommitted()) {
 				response.setStatus(Response.SC_FORBIDDEN);
+				
 				var writer = response.getWriter();
-
 				writer.write(objectMapper.writeValueAsString(ApiResponse.securityError(e.getMessage())));
 				writer.flush();
 			}
